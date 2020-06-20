@@ -9,7 +9,7 @@
 		<div class="select-content">
 			<div class="select-item" :class="{'selected': select2 === index}" v-for="(item, index) in options2" :key="item.value" @click="changeSelect2(index)">{{item.label}}</div>
 		</div>
-		<Scroll ref="scroll" :top="'7.34rem'" :hasLazyItem="true">
+		<Scroll ref="scroll" :top="'5.8rem'" :hasLazyItem="true">
 			<div class="content">
 				<ArtistItem v-for="item in artists" :key="item.id" :singer="item"></ArtistItem>
 			</div>
@@ -131,17 +131,19 @@ export default {
 	text-align: center;
 }
 .select-content{
-	display: flex;
-	line-height: 60px;
+  display: flex;
+  height: 40px;
+	line-height: 40px;
 }
 .select-item{
-	padding: 0 25px;
-	color: var(--desc-color);
+	padding: 0 20px;
+  color: var(--desc-color);
+  font-size: var(--info-size);
 }
 .selected{
 	color: var(--color-red) ;
 }
 .content{
-	padding: 0 20px;
+	padding: 0 10px;
 }
 </style>
