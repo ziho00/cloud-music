@@ -50,9 +50,7 @@ export default {
 	color: var(--color-red);
 	font-size: 1.1rem;
 }
-.active{
-	color: var(--color-red);
-}
+
 .pd {
 	padding-left: 20px;
 }
@@ -63,6 +61,9 @@ export default {
 	color: var(--info-color);
 	font-size: var(--name-size);
 	line-height: 50px;
+}
+.active{
+	color: var(--color-red);
 }
 .song-info-album{
 	line-height: 30px;

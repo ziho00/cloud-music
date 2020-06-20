@@ -68,6 +68,6 @@ export default {
 	color: var(--desc-color);
 }
 .active{
-	color: var(--color-red);
+	color: var(--color-red) !important;
 }
 </style>
