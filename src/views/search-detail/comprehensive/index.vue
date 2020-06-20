@@ -12,7 +12,7 @@
         <div class="songs-header-btn" @click="playAll">播放全部</div>
       </div>
       <SongItem v-for="(item, index) in songs" :activeId="musicInfo.id" :key="item.id" :index="index" :song="item" @play="handlePlay"></SongItem>
-      <div class="more" @click="changeActive('singleMusic')">
+      <div class="more" @click="changeActive('songs')">
         查看更多{{$route.params.keywords}}的相关歌曲<i class="iconfont icon-youjiantoubeifen"></i>
       </div>
     </div>
@@ -22,7 +22,7 @@
         <span>歌单</span>
       </div>
       <PlayListItem v-for="item in playLists" :key="item.id" :playList="item" @click="handleToPlayList"></PlayListItem>
-      <div class="more" @click="changeActive('musicList')">
+      <div class="more" @click="changeActive('playlist')">
         查看更多{{$route.params.keywords}}的相关歌单<i class="iconfont icon-youjiantoubeifen"></i>
       </div>
     </div>
@@ -32,17 +32,18 @@
 <script>
 import {
   search
-} from "../../../api/search"
+} from "@/api/search"
 import {
   Song,
   SearchSinger,
   SearchPlayList
-} from "../../../common/class"
-import PlayListItem from "../../../base/playlist"
-import SingerItem from "../../../base/singer"
-import SongItem from "../../../base/song"
+} from "@/common/class"
+import { classCreator } from "@utils"
+import PlayListItem from "@/base/playlist"
+import SingerItem from "@/base/singer"
+import SongItem from "@/base/song"
 import { mapState } from "vuex"
-import Scroll from "../../../components/scroll"
+import Scroll from "@/components/scroll"
 
 export default {
   components: {
@@ -79,23 +80,10 @@ export default {
       try {
         const { keywords } = this.$route.params
         let res = await search({keywords, type: 1018})
-        const data = res.result
         this.inited = true
-        let singers = []
-        let songs = []
-        let playList = []
-        for (let i = 0, l = data.artist.artists.length; i < l; i++) {
-          singers.push(new SearchSinger(data.artist.artists[i]))
-        }
-        this.singers = singers
-        for (let i = 0, l = data.song.songs.length; i < l; i++) {
-          songs.push(new Song(data.song.songs[i]))
-        }
-        this.songs = songs
-        for (let i = 0, l = data.playList.playLists.length; i < l; i++) {
-          playList.push(new SearchPlayList(data.playList.playLists[i]))
-        }
-        this.playLists = playList
+        this.singers = classCreator(res.result.artist.artists, SearchSinger)
+        this.songs = classCreator(res.result.song.songs, Song)
+        this.playLists = classCreator(res.result.playList.playLists, SearchPlayList)
         this.$loading.hide()
       } catch (err) {
         this.$loading.hide()
@@ -153,7 +141,8 @@ export default {
   right: 15px;
   border-radius: 30px;
   border: 1px solid var(--border-color);
-  font-size: .7rem;
+  font-size: var(--desc-size);
+  color: var(--info-color);
   line-height: 25px;
 }
 
@@ -177,7 +166,7 @@ export default {
   line-height: 70px;
   text-align: center;
   color: var(--desc-color);
-  font-size: var(--info-color);
+  font-size: var(--desc-size);
 }
 .more>i{
   margin-left: 10px;

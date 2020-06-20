@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import LazyLoad from '../../utils/lazyload'
+import LazyLoad from '@utils/lazyload'
 import BScroll from "better-scroll"
 export default {
 	props: {

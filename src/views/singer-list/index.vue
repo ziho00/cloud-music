@@ -20,13 +20,14 @@
 <script>
 import {
   getArtistList
-} from "../../api/singer"
+} from "@/api/singer"
 import {
   SearchSinger
-} from "../../common/class"
-import Header from '../../components/header'
-import ArtistItem from "../../base/singer"
-import Scroll from "../../components/scroll"
+} from "@/common/class"
+import { classCreator } from "@utils"
+import Header from '@/components/header'
+import ArtistItem from "@/base/singer"
+import Scroll from "@/components/scroll"
 export default {
   components: {
 		Scroll,
@@ -99,13 +100,7 @@ export default {
           banClick: true
         })
         const res = await getArtistList({type, area})
-        if (res.code === 200) {
-          let artists = []
-          for (let i = 0, l = res.artists.length; i < l; i++) {
-            artists.push(new SearchSinger(res.artists[i]))
-					}
-          this.artists = artists
-        }
+        this.artists = classCreator(res.artists, SearchSinger)
       } catch (err) {
         console.log(err)
       }

@@ -39,9 +39,12 @@
 <script>
 import {
   searchHotDetail
-} from "../../api/search"
-import { addSearchRecord } from "../../utils"
-import { SearchHot } from "../../common/class"
+} from "@/api/search"
+import { 
+  addSearchRecord,
+  classCreator
+} from "@utils"
+import { SearchHot } from "@/common/class"
 import BScroll from "better-scroll"
 export default {
   data(){
@@ -69,11 +72,7 @@ export default {
 			let vm = this
 			try {
 				const res = await searchHotDetail()
-				let searchHots = []
-				for (let i = 0, len = res.data.length; i < len; i++) {
-					searchHots.push(new SearchHot(res.data[i]))
-				}
-				vm.searchHots = searchHots
+				vm.searchHots = classCreator(res.data, SearchHot)
 				this.initHistoryList()
 			} catch(err) {
 				console.log(err)

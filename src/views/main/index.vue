@@ -10,7 +10,7 @@
 
 <script>
 import Header from './header'
-import Scroll from '../../components/scroll'
+import Scroll from '@/components/scroll'
 import UserItem from './user'
 export default {
 	components: {

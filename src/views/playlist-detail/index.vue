@@ -45,16 +45,16 @@
 <script>
 import {
   getSongsList
-} from "../../api/songList"
+} from "@/api/songList"
 import {
 	PlayList
-} from '../../common/class'
+} from '@/common/class'
 import { mapState } from "vuex"
-import Header from '../../components/header'
-import Scroll from '../../components/scroll'
-import SongItem from '../../base/song-playlist'
-import PlayAllItem from '../../base/playall-item'
-import FrostedGlass from '../../components/frosted-glass'
+import Header from '@/components/header'
+import Scroll from '@/components/scroll'
+import SongItem from '@/base/song-playlist'
+import PlayAllItem from '@/base/playall-item'
+import FrostedGlass from '@/components/frosted-glass'
 export default {
 	components: {
 		Header,

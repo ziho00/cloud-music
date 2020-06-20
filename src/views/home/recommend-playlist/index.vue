@@ -10,11 +10,12 @@
 <script>
 import {
   getRecommendedSongsList
-} from "../../../api/home"
+} from "@/api/home"
 import {
   Playlist
-} from '../../../common/class'
-import PlaylistView from "../../../components/playlist"
+} from '@/common/class'
+import { classCreator } from '@utils'
+import PlaylistView from "@/components/playlist"
 export default {
   components: {
     PlaylistView
@@ -31,11 +32,7 @@ export default {
     async getData() {
       try {
 				const res = await getRecommendedSongsList()
-        let playlists = []
-        for(let i = 0, l = res.result.length; i < l; i++) {
-          playlists.push(new Playlist(res.result[i]))
-        }
-        this.playlists = playlists
+        this.playlists = classCreator(res.result , Playlist)
 			} catch(err) {
 				console.log(err)
 			}

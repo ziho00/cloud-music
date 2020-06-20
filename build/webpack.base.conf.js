@@ -1,6 +1,7 @@
 const path = require("path")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const VueLoaderPlugin = require("vue-loader/lib/plugin")
+
 module.exports = {
   entry: {
     // eslint-disable-next-line no-undef
@@ -8,11 +9,15 @@ module.exports = {
   },
   output: {
     // eslint-disable-next-line no-undef
-    path: path.resolve(__dirname, "../dist"),
+    path: path.resolve(__dirname, "../cloudMusic"),
     filename: "[name].[hash].js"
   },
   resolve: {
     extensions: ["*", ".js", ".json", ".vue"],
+    alias: {
+      '@': path.resolve(__dirname, "../src"),
+      '@utils': path.resolve(__dirname, "../src/utils")
+    }
   },
   module: {
     rules: [

@@ -4,7 +4,7 @@
 		<transition name="show">
 			<div v-if="visiable" class="loading">
 				<div class="loading-icon">
-					<img src="../../../public/img/svg-loaders/bars.svg"  alt="">
+					<img src="http://116.62.70.150/static/image/svg/bars.svg"  alt="">
 				</div>
 				<div class="loading-text">
 				{{msg}}

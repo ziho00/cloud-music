@@ -53,10 +53,11 @@ export default {
   width: calc(100% - 200px);
   line-height: 100px;
   margin-left: 25px;
+  color: var(--info-color);
   font-size: var(--name-size);
 }
 .singer-info>span {
-	color: var(--title-color);
+	color: var(--desc-color);
 }
 .siner-icon{
   position: absolute;
@@ -67,6 +68,6 @@ export default {
 }
 .siner-icon>i{
   font-size: 1.6rem;
-  color: var(--title-color);
+  color: var(--info-color);
 }
 </style>

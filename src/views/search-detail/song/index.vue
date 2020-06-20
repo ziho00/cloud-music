@@ -10,14 +10,17 @@
 <script>
 import {
   search
-} from "../../../api/search"
+} from "@/api/search"
 import { mapState } from "vuex"
-import PlayAllItem from '../../../base/playall-item'
-import SongItem from "../../../base/song"
-import Scroll from "../../../components/scroll"
+import PlayAllItem from '@/base/playall-item'
+import SongItem from "@/base/song"
+import Scroll from "@/components/scroll"
+import {
+  classCreator
+} from '@utils'
 import { 
   SearchSong 
-}from "../../../common/class"
+}from "@/common/class"
 export default {
   components: {
     PlayAllItem,
@@ -53,12 +56,7 @@ export default {
       try {
         const { keywords } = this
         let res = await search({keywords, type: 1})
-        let songs = []
-        console.log(res)
-        for (let i = 0, l = res.result.songs.length; i < l; i++) {
-          songs.push(new SearchSong(res.result.songs[i]))
-        }
-        this.songs = songs
+        this.songs = classCreator(res.result.songs, SearchSong)
         this.inited = true
       } catch (err) {
         console.log(err)

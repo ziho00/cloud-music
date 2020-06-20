@@ -52,10 +52,10 @@ import {
 } from "vuex"
 import DiskView from './disk-view'
 import LyricView from './lyric-view'
-import Header from '../../components/header'
+import Header from '@/components/header'
 import PlayListView from './playlist-view'
 import ProgressBar from './progress-bar'
-import FrostedGlass from '../../components/frosted-glass'
+import FrostedGlass from '@/components/frosted-glass'
 export default {
 	components: {
 		Header,

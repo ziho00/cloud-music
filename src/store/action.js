@@ -2,19 +2,19 @@ import {
   getMusic,
   checkMusic,
   getMusiclyric
-} from "../api/music"
+} from "@/api/music"
 
 import {
   login
-} from "../api/login"
+} from "@/api/login"
 
 import {
   initLyric
-} from '../utils'
+} from '@utils'
 
 import {
   Music
-} from '../common/class'
+} from '@/common/class'
 
 
 import Vue from "vue"

@@ -7,14 +7,15 @@
 </template>
 
 <script>
-import Scroll from "../../../components/scroll"
-import SingerItem from "../../../base/singer"
+import Scroll from "@/components/scroll"
+import SingerItem from "@/base/singer"
+import { classCreator } from "@utils"
 import {
   search
-} from "../../../api/search"
+} from "@/api/search"
 import {
   SearchSinger
-} from "../../../common/class"
+} from "@/common/class"
 export default {
   components: {
     SingerItem,
@@ -43,14 +44,8 @@ export default {
       try {
         const { keywords } = this.$route.params
         const res = await search({keywords, type: 100})
-        if (res.code === 200) {
-          let singers = []
-          for (let i = 0, l = res.result.artists.length; i < l; i++){
-            singers.push(new SearchSinger(res.result.artists[i]))
-          }
-          this.inited = true
-          this.singers = singers
-        }
+        this.inited = true
+        this.singers = classCreator(res.result.artists, SearchSinger)
       } catch (err) {
         console.log(err)
       }

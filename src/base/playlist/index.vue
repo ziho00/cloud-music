@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import ImgLazy from '../img-lazy'
+import ImgLazy from "../img-lazy"
 export default {
 	components: {
 		ImgLazy
@@ -44,16 +44,12 @@ export default {
 }
 .list-info-name{
 	line-height: 50px;
-	-webkit-line-clamp: 1;
-	-webkit-box-orient: vertical;
-	overflow: hidden;
+	color: var(--info-color);
+	font-size: var(--name-size);
 }
 .list-info-desc{
 	line-height: 40px;
-	font-size: .7rem;
-	color: #909399;
-	-webkit-line-clamp: 1;
-	-webkit-box-orient: vertical;
-	overflow: hidden;
+	font-size: var(--desc-size);
+	color: var(--desc-color);
 }
 </style>

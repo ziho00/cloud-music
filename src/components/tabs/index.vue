@@ -10,7 +10,7 @@ import Tab from "./tab"
 import {
   isDef,
   addUnit
-} from "../../utils"
+} from "@utils"
 export default {
   components: {
     Tab

@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import Scroll from "../../../components/scroll"
+import Scroll from "@/components/scroll"
 export default {
   props: {
     visiable: {
@@ -108,7 +108,7 @@ header{
 	padding: 0 20px;
 }
 .text{
-	color: var(--title-color);
+	color: var(--info-color);
 	font-size: var(--name-size);
 }
 .songs-counter{
@@ -139,7 +139,7 @@ footer{
     overflow: hidden;
     width: calc(100vw - 120px);
     font-size: var(--info-size);
-    color: var(--title-color);
+    color: var(--info-color);
 }
 .songs-item__info>i{
 	font-size: var(--name-size);
@@ -159,7 +159,7 @@ footer{
 }
 
 .active-item{
-  color: var(--app-bg);
+  color: var(--color-red);
 }
 
 </style>

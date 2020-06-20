@@ -24,7 +24,7 @@
 import {
   debounce,
   addSearchRecord 
-} from '../../../utils'
+} from '@utils'
 export default {
   data() {
     return {

@@ -15,8 +15,8 @@
 <script>
 import {
   searchSuggest
-} from "../../../api/search"
-import { addSearchRecord } from "../../../utils"
+} from "@/api/search"
+import { addSearchRecord } from "@utils"
 export default {
   props: {
     keywords: {

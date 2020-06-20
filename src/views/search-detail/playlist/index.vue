@@ -7,14 +7,11 @@
 </template>
 
 <script>
-import Scroll from "../../../components/scroll"
-import PlayListItem from "../../../base/playlist"
-import {
-  search
-} from "../../../api/search"
-import {
-  SearchPlayList
-} from "../../../common/class"
+import Scroll from "@/components/scroll"
+import PlayListItem from "@/base/playlist"
+import { search } from "@/api/search"
+import { SearchPlayList } from "@/common/class"
+import { classCreator } from "@utils"
 export default {
   components: {
     PlayListItem,
@@ -48,14 +45,8 @@ export default {
       try {
         const { keywords } = this.$route.params
         const res = await search({keywords, type: 1000})
-        if (res.code === 200) {
-          let playLists = []
-          for (let i = 0, l = res.result.playlists.length; i < l; i++){
-            playLists.push(new SearchPlayList(res.result.playlists[i]))
-          }
-          this.inited = true
-          this.playLists = playLists
-        }
+        this.inited = true
+        this.playLists = classCreator(res.result.playlists, SearchPlayList)
       } catch (err) {
         console.log(err)
       }

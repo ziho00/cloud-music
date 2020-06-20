@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import ImgLazy from '../../base/img-lazy'
+import ImgLazy from '@/base/img-lazy'
 export default {
   props: {
     playlists: {
@@ -55,12 +55,9 @@ export default {
 }
 
 .song-text{
-	overflow: hidden;
-	display: -webkit-box;
-
 	font-size: var(--desc-size);
 	line-height: 35px;
-	color: #000;
+	color: var(--info-color);
 }
 .song-playcount{
 	position: absolute;
@@ -68,7 +65,7 @@ export default {
 	right: 15px;
 
 	line-height: 36px;
-	color: white;
+	color: var(--color-white);
 	font-size: var(--desc-size);
 }
 .song-playcount>i{

@@ -16,7 +16,7 @@
 <script>
 import {
 	findLyricInList
-} from '../../../utils'
+} from '@utils'
 import BScroll from "better-scroll"
 export default {
   props: {
@@ -90,6 +90,7 @@ export default {
 <style scoped>
 .lyric-view{
 	position: relative;
+
 	height: calc(100vh - 290px);
 }
 .lyric-item{
@@ -100,7 +101,7 @@ export default {
   color: rgba(255, 255, 255, .5);
 }
 .active{
-	color: var(--color-white);
+	color: #fff;
 }
 .scroll-view{
 	position: fixed;

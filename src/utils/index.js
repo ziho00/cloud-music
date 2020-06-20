@@ -229,6 +229,12 @@ const addUnit = (value) => {
   return isNumber(value) ? `${value}px` : value
 }
 
+const classCreator = (list, Cotr) => {
+  return list.reduce((acc, cur) => {
+    acc.push(new Cotr(cur))
+    return acc
+  }, [])
+}
 
 export {
   initCollectionCount,
@@ -236,7 +242,8 @@ export {
   addSearchRecord,
 	iOS_ScrollTop,
 	initPlayCount,
-	initArtists,
+  classCreator,
+  initArtists,
 	initLyric,
 	initDate,
 	initTime,

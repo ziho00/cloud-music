@@ -1,7 +1,7 @@
 <template>
 	<div class="login">
 		<div class="logo_animation">
-			<img class="login__logo" src="../../../public/img/logo.png" alt="appLogo">
+			<img class="login__logo" src="http://116.62.70.150/static/image/logo.png" alt="appLogo">
 			<div class="wave wave0 border-1px"></div>
 			<div class="wave wave1 border-1px"></div>
 			<div class="wave wave2 border-1px"></div>
@@ -22,7 +22,7 @@
 <script>
 import {
 	iOS_ScrollTop
-} from '../../utils'
+} from '@utils'
 export default {
   data(){
     return {
@@ -177,8 +177,8 @@ button {
 	position: absolute;
 	bottom: 20px;
 	width: 100%;
-	color: var(--dsc-color);
-	font-size: var(--dsc-size);
+	color: var(--desc-color);
+	font-size: var(--desc-size);
 	text-align: center;
 }
 .form__btn{
@@ -203,7 +203,7 @@ button {
 	height: 90px;
 	margin: 30px 12%;
 	border-radius: 60px;
-	color: #f4f4f4;
+	color: var(--color-gray);
 	background: rgba(255,255,255,0.4);
 	font-size: 0.9rem;
 }

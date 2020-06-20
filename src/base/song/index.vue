@@ -60,6 +60,8 @@ export default {
 	width: calc(100% - 120px);
 }
 .song-info-name{
+	color: var(--info-color);
+	font-size: var(--name-size);
 	line-height: 50px;
 }
 .song-info-album{

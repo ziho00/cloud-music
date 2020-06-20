@@ -59,7 +59,7 @@ export default {
 	width: 100%;
 	line-height: 45px;
 	font-size: var(--name-size);
-	color: var(--title-color);
+	color: var(--info-color);
 }
 .song-dec{
 	width: 100%;

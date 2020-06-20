@@ -21,17 +21,18 @@ import { mapState } from "vuex"
 
 import {
   Song
-} from "../../../common/class"
+} from "@/common/class"
 import {
   getSingerSongs
-} from "../../../api/singer"
+} from "@/api/singer"
 import {
+  classCreator,
   throttle
-} from "../../../utils"
-import Scroll from "../../../components/scroll"
-import SongItem from "../../../base/song"
-import Header from '../../../components/header'
-import PlayAllItem from '../../../base/playall-item'
+} from "@utils"
+import Scroll from "@/components/scroll"
+import SongItem from "@/base/song"
+import Header from '@/components/header'
+import PlayAllItem from '@/base/playall-item'
 export default {
   components: {
 		Scroll,
@@ -72,12 +73,8 @@ export default {
           banClick: true
         })
         const songsRes = await getSingerSongs({id})
-        let songs = []
 				this.singer = songsRes.artist
-				for (let i = 0, l = songsRes.hotSongs.length; i < l; i++) {
-					songs.push(new Song(songsRes.hotSongs[i]))
-				}
-				this.songs = songs
+				this.songs = classCreator(songsRes.hotSongs, Song)
 				this.$refs.scroll.refresh()
       } catch (err) {
         console.log(err)
