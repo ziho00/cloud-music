@@ -1,5 +1,5 @@
 // IOS input issue
-const iOS_ScrollTop = function() {
+export const iOS_ScrollTop = function() {
   if (/iphone|ipod|ipad/i.test(navigator.appVersion)){
     if (
       document.documentElement.offsetHeight <=
@@ -16,7 +16,7 @@ const iOS_ScrollTop = function() {
  * @param {*} delay 触发时间间隔
  * @param {*} immdeiate 是否立即执行
  */
-const debounce = (cb, delay = 500, immdeiate = false) => {
+export const debounce = (cb, delay = 500, immdeiate = false) => {
   let timer = null
   return function (...args) {
     let context = this
@@ -41,7 +41,7 @@ const debounce = (cb, delay = 500, immdeiate = false) => {
  * @param {*} cb 
  * @param {*} duration 
  */
-const throttle = (cb, duration = 500) => {
+export const throttle = (cb, duration = 500) => {
   var timer = null
   var pre = Date.now()
   return function() {
@@ -64,7 +64,7 @@ const throttle = (cb, duration = 500) => {
  * @param {*} now 当前时间戳
  * @param {*} lyrics 歌词数组
  */
-const findLyricInList = (now, lyrics) => {
+export const findLyricInList = (now, lyrics) => {
   // now += 0.5
   if (lyrics.length === 0 || lyrics === null ) { return }
   // 二分法找小于等于目标时间的最后一个元素
@@ -87,7 +87,7 @@ const findLyricInList = (now, lyrics) => {
  * 初始化 播放量
  * @param {*} playCount 播放量
  */
-const initPlayCount = (playCount) => {
+export const initPlayCount = (playCount) => {
   let y = playCount / 100000000
   let w = playCount / 10000
   if (y > 1) {
@@ -103,7 +103,7 @@ const initPlayCount = (playCount) => {
  * 初始化收藏数量
  * @param {*} collectionCount 收藏数量
  */
-const initCollectionCount = (collectionCount) => {
+export const initCollectionCount = (collectionCount) => {
   let y = collectionCount / 100000000
   let w = collectionCount / 10000
   if (y > 1) {
@@ -119,7 +119,7 @@ const initCollectionCount = (collectionCount) => {
  * 初始化日期
  * @param {*} dateTime 时间戳
  */
-const initDate = (dateTime) => {
+export const initDate = (dateTime) => {
   const date = new Date(dateTime)
   return (date.getMonth() + 1) + "月" + date.getDate() + "日"
 }
@@ -128,7 +128,7 @@ const initDate = (dateTime) => {
  * 多个歌手的名字拼接
  * @param {*} artists 歌手数组
  */
-const initArtists = (artists) => {
+export const initArtists = (artists) => {
   let ret = ""
   for (let i = 0, len = artists.length; i < len; i++) {
     ret += i === 0 ? artists[i].name : ("/" + artists[i].name)
@@ -141,7 +141,7 @@ const initArtists = (artists) => {
  * 初始化歌词
  * @param {*} lyric 
  */
-const initLyric = (lyric) => {
+export const initLyric = (lyric) => {
   if (!lyric) { return }
   let list = lyric.split("\n")
   if (list.length <= 0) { return [] }
@@ -175,7 +175,7 @@ const initLyric = (lyric) => {
  * 输出：01:40
  * @param {*} time 时间戳
  */
-const initTime = (time) => {
+export const initTime = (time) => {
   let res = ""
   if (time > -1) {
     let min = ~~(time / 60)
@@ -191,7 +191,7 @@ const initTime = (time) => {
   return res
 }
 
-const find = (arr, target) => {
+export const find = (arr, target) => {
   let start = 0
   let end = arr.length
   while (start <= end) {
@@ -206,7 +206,7 @@ const find = (arr, target) => {
   return -1
 }
 
-const addSearchRecord = (keywords) => {
+export const addSearchRecord = (keywords) => {
   const storage = window.localStorage
   let searchHistories = JSON.parse(storage.getItem("searchHistories") || "[]")
   let index = find(searchHistories, keywords)
@@ -217,11 +217,11 @@ const addSearchRecord = (keywords) => {
   storage.setItem("searchHistories", JSON.stringify(searchHistories))
 }
 
-const isDef = (value) => value !== undefined && value !== null
+export const isDef = (value) => value !== undefined && value !== null
 
-const isNumber = (value) => /^\d+(\.\d+)?$/.test(value)
+export const isNumber = (value) => /^\d+(\.\d+)?$/.test(value)
 
-const addUnit = (value) => {
+export const addUnit = (value) => {
   if (!isDef(value)) {
     return
   }
@@ -229,27 +229,9 @@ const addUnit = (value) => {
   return isNumber(value) ? `${value}px` : value
 }
 
-const classCreator = (list, Cotr) => {
+export const classCreator = (list = [], Ctor) => {
   return list.reduce((acc, cur) => {
-    acc.push(new Cotr(cur))
+    acc.push(new Ctor(cur))
     return acc
   }, [])
-}
-
-export {
-  initCollectionCount,
-	findLyricInList,
-  addSearchRecord,
-	iOS_ScrollTop,
-	initPlayCount,
-  classCreator,
-  initArtists,
-	initLyric,
-	initDate,
-	initTime,
-	debounce,
-  throttle,
-  isNumber,
-  addUnit,
-  isDef
 }

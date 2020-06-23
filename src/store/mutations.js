@@ -37,10 +37,13 @@ const mutations = {
   [type.UPDATE_CURRENT_TIME](state, changeCurrentTime) {
     state.changeCurrentTime = changeCurrentTime
   },
-  [type.Set_LOGIN_INFO](state, info) {
+  [type.SET_LOGIN_INFO](state, info) {
     state.account = info.account
     state.profile = info.profile
     state.token = info.token
+  },
+  [type.SET_ANONYMOUS](state, value) {
+    state.isAnonymous = value
   }
 }
 

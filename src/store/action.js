@@ -134,4 +134,6 @@ export const ChnageCurrentTime = ({commit}, changeCurrentTime = 0) => {
   commit("update_current_time", changeCurrentTime)
 }
 
-
+export const setAnonymous = ({commit}, value) => {
+  commit("set_anonymous", value)
+}

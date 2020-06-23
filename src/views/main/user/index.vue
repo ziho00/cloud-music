@@ -2,9 +2,10 @@
   <div>
     <div class="userBar" ref="userBar">
       <div class="avatar">
-        <img :src="profile.avatarUrl" alt="用户头像" >
+        <img v-if="!isAnonymous" :src="profile.avatarUrl" alt="用户头像">
+        <img v-else src="http://116.62.70.150/static/image/default_avatar.jpg" alt="用户头像">
       </div>
-      <div class="username">{{profile.nickname}}</div>
+      <div class="username">{{profile.nickname || '游客'}}</div>
       <div class="nav-item" v-for="(item, index) in navItemList" @click="navTo(item.path)" :key="index">
         <div v-if="item.isDiaryIcon" class="nav-item__icon">
           <div class="date">{{dateNum}}</div>
@@ -21,8 +22,11 @@
           </div>
         </div>
       </div>
-      <div class="userBar-logout" @click="logout">
+      <div v-if="!isAnonymous" class="userBar-logout" @click="logout">
         退出登录
+      </div>
+      <div v-else class="userBar-logout" @click="handleLogin">
+        登录账号
       </div>
     </div>
     <transition name="fade">
@@ -61,7 +65,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(['profile'])
+    ...mapState(['profile', 'isAnonymous'])
   },
   watch: {
     show(newValue){
@@ -97,6 +101,13 @@ export default {
         .catch(() => {})
     },
     navTo(path) {
+      if(this.isAnonymous) {
+        this.$toast({
+          msg: '请登录账号！',
+          icon: 'warning'
+        })
+        return
+      }
       this.show = false
       if (path === "/collections") {
         this.$confirm({
@@ -125,6 +136,10 @@ export default {
         return
       }
       // this.$router.push(path)
+    },
+    handleLogin(){
+      this.show = false
+      this.$router.replace("/")
     }
   }
 }
@@ -133,7 +148,7 @@ export default {
 <style scoped>
 .userBar{
   position: fixed;
-  z-index: 120;
+  z-index: 101;
   top: 0;
   bottom: 0;
   left: 0;

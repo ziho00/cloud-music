@@ -22,7 +22,7 @@
         <span>歌单</span>
       </div>
       <PlayListItem v-for="item in playLists" :key="item.id" :playList="item" @click="handleToPlayList"></PlayListItem>
-      <div class="more" @click="changeActive('playlist')">
+      <div class="more" @click="changeActive('playlists')">
         查看更多{{$route.params.keywords}}的相关歌单<i class="iconfont icon-youjiantoubeifen"></i>
       </div>
     </div>

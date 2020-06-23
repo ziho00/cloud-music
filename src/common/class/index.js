@@ -1,8 +1,9 @@
 import {
 	initDate,
-	initArtists,
+  initArtists,
+  classCreator,
 	initPlayCount
-} from '../../utils'
+} from '@utils'
 
 export class Playlist {
 	constructor(params) {
@@ -38,12 +39,7 @@ export class PlayList {
     this.playCount = params.playCount ? initPlayCount(params.playCount) : 0
     this.updateTime = params.updateTime ? initDate(params.updateTime) : null
 		this.creator = params.creator ? new Creator(params.creator) : null
-		this.songs = []
-		if(params.tracks) {
-			for(let i = 0, l = params.tracks.length; i < l; i++) {
-				this.songs.push(new PlaylistSong(params.tracks[i]))
-			}
-		}
+		this.songs = classCreator(params.tracks, PlaylistSong)
   }
 }
 

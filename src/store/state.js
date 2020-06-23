@@ -2,6 +2,7 @@ const state = {
   account: {},
   profile: {},
   token: "",
+  isAnonymous: false, 
   playList: [], // 当前播放歌单
   randomPlayList: [], // 选择随机播放时使用的歌单
   isPlaying: false, // 播放状态 true | 正在播放  false | 暂停

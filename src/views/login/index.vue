@@ -12,6 +12,7 @@
 			<input class="form__input form__input-password" :class="{ 'form__input-active' : isActive === 2 }"  
 				@focus="isActive = 2" @blur="inputBlur"   v-model="pwd" type="text" placeholder="输入密码">
 			<button  :class="disabled?'form__btn__disabled':'form__btn'" @click="submitLoginForm" :disabled="disabled">登录</button>
+			<button  class="youke-login" @click="anonymousLogin" >游客登录</button>
 		</div>
 		<div class="copyright">
 			&copy;2020 cloud-music Powered by zihao
@@ -64,7 +65,11 @@ export default {
     inputBlur(){
       this.isActive = 0
       iOS_ScrollTop()
-    }
+		},
+		anonymousLogin() {
+			this.$store.dispatch('setAnonymous', true)
+			this.$router.replace("/main")
+		}
   }
 }
 </script>
@@ -138,41 +143,6 @@ button {
 	animation: wave 10s linear infinite 7s;
 }
 
-.login__form{
-	position: relative;
-	z-index: 20;
-
-	width: 100%;
-	margin-top: 200px;
-	box-shadow: 0 0 1px 0 rgba(0, 0, 0, .1);
-}
-.form__input{
-	position: absolute;
-	z-index: 100;
-
-	width: 70%;
-	margin: 30px 12%;
-	padding: 10px 3%;
-	height: 70px;
-	border-radius: 60px;
-
-	color: rgba(255, 255, 255, 0.2);
-	background: rgba(0,0,0,0.3);
-
-	text-align: center;
-	font-size: 0.9rem;
-	
-}
-.form__input-phone{
-	top: 0;
-}
-.form__input-password{
-	top: 120px;
-}
-.form__input-active{
-	background: rgba(255,255,255,0.8);
-	color: var(--title-color);
-}
 .copyright{
 	position: absolute;
 	bottom: 20px;
@@ -181,32 +151,7 @@ button {
 	font-size: var(--desc-size);
 	text-align: center;
 }
-.form__btn{
-	position: absolute;
-	z-index: 100;
-	top: 280px;
 
-	width: 76%;
-	height: 90px;
-	margin: 30px 12%;
-	border-radius: 60px;
-
-	background: rgba(255,255,255,0.9);
-	font-size: 0.9rem;
-}
-.form__btn__disabled {
-	position: absolute;
-	top: 280px;
-	z-index: 100;
-
-	width: 76%;
-	height: 90px;
-	margin: 30px 12%;
-	border-radius: 60px;
-	color: var(--color-gray);
-	background: rgba(255,255,255,0.4);
-	font-size: 0.9rem;
-}
 @keyframes wave{
 	0%{
 		transform: scale(1);
@@ -312,5 +257,78 @@ button {
 		transform: scale(17.5);
 		opacity: 0.1;
 	}
+}
+
+.login__form{
+	position: fixed;
+	z-index: 20;
+	bottom: calc(10vh + 260px);
+	width: 100vw;
+	box-shadow: 0 0 1px 0 rgba(0, 0, 0, .1);
+}
+.form__input{
+	position: absolute;
+	z-index: 100;
+
+	width: 70vw;
+	margin: 30px 12vw;
+	padding: 10px 3vw;
+	height: 70px;
+	border-radius: 60px;
+	color: rgba(255, 255, 255, 0.2);
+	background: rgba(0,0,0,0.3);
+	text-align: center;
+	font-size: 0.9rem;
+}
+.form__input-phone{
+	bottom: 120px;
+}
+.form__input-password{
+	bottom: 0;
+}
+.form__input-active{
+	background: rgba(255,255,255,0.8);
+	color: var(--title-color);
+}
+
+.form__btn{
+	position: fixed;
+	z-index: 100;
+	bottom: calc(10vh + 130px);
+
+	width: 76vw;
+	height: 90px;
+	margin: 20px 12vw;
+	border-radius: 60px;
+
+	background: rgba(255,255,255,0.9);
+	font-size: 0.9rem;
+}
+.form__btn__disabled {
+	position: fixed;
+	bottom: calc(10vh + 130px);
+	z-index: 100;
+	width: 76vw;
+	height: 90px;
+	margin: 20px 12vw;
+	border-radius: 60px;
+	color: var(--color-gray);
+	background: rgba(255,255,255,0.4);
+	font-size: 0.9rem;
+}
+
+.youke-login {
+	position: fixed;
+	z-index: 100;
+  bottom: 10vh;
+
+	width: 76%;
+	height: 90px;
+	margin: 20px 12%;
+	border-radius: 60px;
+	background: transparent;
+	color: rgba(255,255,255,0.9);
+	border: 1px solid rgba(255,255,255,0.9);
+	font-size: 0.9rem;
 }
 </style>

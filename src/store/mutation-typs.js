@@ -22,4 +22,6 @@ export const SET_CURRENT_INDEX = "set_current_index"
 
 export const UPDATE_CURRENT_TIME = "update_current_time"
 
-export const Set_LOGIN_INFO = "set_login_info"
+export const SET_LOGIN_INFO = "set_login_info"
+
+export const SET_ANONYMOUS = "set_anonymous"

@@ -31,7 +31,7 @@ export default {
 <style scoped>
 .toast {
 	position: fixed;
-  z-index: 100;
+  z-index: 110;
   top: 50%;
   left: 50%;
   width: 200px;
