@@ -41,6 +41,31 @@ $ npm run dev
 
 还有很多模块都可以做但目前还没做的。不过有的是因为后台的数据接口不稳定，...特别是用户相关的接口。如果后台获取数据的项目后期不维护了，时间一长有的接口可能就访问不了了。
 
+优化手段：
++ 图片懒加载
+	自己写了一个图片懒加载的组件和配套的懒加载方法(加了节流),其实就是添加 `scroll` 事件，获取所有的class为 `lazy` 图片，即使用了懒加载组件的图片，判断是否在渲染范围内( `lazy` 元素顶部 距离 视口左上角 的距离 top <= 窗口高度 )，由于组件和方法可以改进的地方都很多，所有优化后感觉不是特别明显，只是图片较多的页面不会像之前一样在进入的时候会卡一下。
+
++ 路由懒加载并将可能会同时用到的页面打包到一个文件
+	![路由懒加载](http://116.62.70.150/static/image/player_README7.jpg)
+	在 `webpack` 配置的 `output` 中 设置 `filename` 为 `filename: [name].[hash].js` 或 `filename: [name].js` 即可,加 `[hash]` 是为了避免因为设备缓存的原因，加载不到最新的文件。
++ 使用 CDN 来加载 JS 库
+	
+	原因是我发现每次首屏都要3秒以上，想到是学生服务器，感觉问题就是出在带宽上面了。所以尝试了一下使用外部 `CDN` 会不会有所改善。主要就是将原本项目中一些通过 `import` 方法引入的库，换成了通过 `script` 标签的方式来加载。
+	![使用外部 CDN](http://116.62.70.150/static/image/player_README2.jpg)
+	使用外部的 `CDN` 后，打包体积从 1.88 MB 缩小到了 631 KB，首屏时间也有了很明显的改善
+	+ 未使用 CDN
+		DCL(DOMContentLoaded Event):
+		![DOMContentLoaded Event](http://116.62.70.150/static/image/player_README5.png)
+		L(Onload Event):
+		![Onload Event](http://116.62.70.150/static/image/player_README6.png)
+		这还是我挑的比较快的一次了....
+	+ 使用了外部 CDN
+		DCL(DOMContentLoaded Event):
+		![DOMContentLoaded Event](http://116.62.70.150/static/image/player_README3.png)
+		L(Onload Event):
+		![Onload Event](http://116.62.70.150/static/image/player_README4.png)
+
+	可以看到：`DCL` 2758.8 ms => 609.5 ms | `L` 3853.2 ms => 790.8 ms，只能用可怕来形容了，也可以看到学生服务器的带宽是真的低...，没使用外部 `CDN` 的首屏时间居然是，使用了 `CDN` 的 4 ~ 5 倍。
 
 
 
