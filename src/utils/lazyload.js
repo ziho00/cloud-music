@@ -6,8 +6,9 @@ export default function LazyLoad() {
     // 获取所有 lazy 图片的 dom 
     let lazyImages = Array.from(document.querySelectorAll("img.lazy"))
     if(lazyImages.length === 0) {
-      window.removeEventListener("resize", lazyLoad)
-      window.removeEventListener("orientationchange", lazyLoad)
+      // window.removeEventListener("resize", lazyLoad)
+      // window.removeEventListener("orientationchange", lazyLoad)
+      return
     }
 
     for(let i = 0, l = lazyImages.length; i < l; i++) {
@@ -27,8 +28,8 @@ export default function LazyLoad() {
     lazyLoad()
     clearTimeout(timer)
   }, 500)
-  document.addEventListener("resize", lazyLoad);
-  document.addEventListener("orientationchange", lazyLoad)
+  // document.addEventListener("resize", lazyLoad);
+  // document.addEventListener("orientationchange", lazyLoad)
   return lazyLoad
 }
 
