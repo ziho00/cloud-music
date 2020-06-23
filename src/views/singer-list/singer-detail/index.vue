@@ -59,7 +59,7 @@ export default {
   },
   mounted() {
     this.changeScale = throttle((args) => {
-      this.scale = args && args[0] || this.scale
+      this.scale = args
     }, 50)
   },
   methods: {
