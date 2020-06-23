@@ -24,18 +24,17 @@
 </template>
 
 <script>
-import { mapState } from "vuex"
 export default {
 	data(){
 		return {
 			len: 0,
 			roate: 0,
 			showMusicIcon: true,
-			img: 'http://116.62.70.150/static/image/disc_default.png',
+			img: 'http://s3.music.126.net/mobile-new/img/disc_default.png',
 		}
 	},
 	computed: {
-		...mapState(["musicInfo", "currentTime", "totalTime", "isPlaying"])
+		...Vuex.mapState(["musicInfo", "currentTime", "totalTime", "isPlaying"])
 	}, 
 	watch: {
 		"$route"(to){

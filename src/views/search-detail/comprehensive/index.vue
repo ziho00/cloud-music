@@ -42,7 +42,6 @@ import { classCreator } from "@utils"
 import PlayListItem from "@/base/playlist"
 import SingerItem from "@/base/singer"
 import SongItem from "@/base/song"
-import { mapState } from "vuex"
 import Scroll from "@/components/scroll"
 
 export default {
@@ -61,7 +60,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(["musicInfo"])
+    ...Vuex.mapState(["musicInfo"])
   },
   created(){
     this.getData()

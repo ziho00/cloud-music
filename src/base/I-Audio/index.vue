@@ -9,9 +9,6 @@
 </template>
 
 <script>
-import {
-  mapState
-} from "vuex"
 export default {
   data() {
     return {
@@ -19,7 +16,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(["musicInfo", "musicUrl", "isPlaying", "changeCurrentTime"])
+    ...Vuex.mapState(["musicInfo", "musicUrl", "isPlaying", "changeCurrentTime"])
   },
   watch: {
     isPlaying(newVal) {

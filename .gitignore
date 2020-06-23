@@ -1,7 +1,7 @@
 .DS_Store
 node_modules
 /cloudMusic
-
+/cloudMusic_old
 # local env files
 .env.local
 .env.*.local

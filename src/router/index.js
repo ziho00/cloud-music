@@ -1,9 +1,9 @@
-import Vue from "vue"
-import Router from "vue-router"
-Vue.use(Router)
+// import Vue from "vue"
+// import VueRouter from "vue-router"
+// Vue.use(VueRouter)
 
-const originalPush = Router.prototype.push
-Router.prototype.push = function push(location) {
+const originalPush = VueRouter.prototype.push
+VueRouter.prototype.push = function push(location) {
   return originalPush.call(this, location).catch(err => err)
 }
 
@@ -22,7 +22,8 @@ const SearchSinger = () => import(/* webpackChunkName: "searchDetail" */ "@/view
 const SearchSongs = () => import(/* webpackChunkName: "searchDetail" */ "@/views/search-detail/song")
 const Singers = () => import(/* webpackChunkName: "singer" */ "@/views/singer-list")
 const SingerDetail = () => import(/* webpackChunkName: "singer" */ "@/views/singer-list/singer-detail")
-export default new Router({
+
+export default new VueRouter({
   routes: [
     {
       path: '/',

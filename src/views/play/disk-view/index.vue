@@ -4,7 +4,7 @@
 			<div class="height-10vh"></div>
 			<div class="disk">
 				<img v-if="musicUrl" :src="musicUrl" alt="歌曲图片">
-				<img v-else src="http://116.62.70.150/static/image/disc_default.png" alt="歌曲图片">
+				<img v-else src="http://s3.music.126.net/mobile-new/img/disc_default.png" alt="歌曲图片">
 			</div>
 		</div>
 	</transition>

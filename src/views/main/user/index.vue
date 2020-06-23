@@ -36,7 +36,6 @@
 </template>
 
 <script>
-import { mapState } from "vuex"
 export default {
   data(){
     return {
@@ -65,7 +64,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(['profile', 'isAnonymous'])
+    ...Vuex.mapState(['profile', 'isAnonymous'])
   },
   watch: {
     show(newValue){

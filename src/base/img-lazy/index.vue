@@ -10,7 +10,7 @@ export default {
 		},
 		defaultImg: {
 			type: String,
-			default: 'http://116.62.70.150/static/image/disc_default.png'
+			default: 'http://s3.music.126.net/mobile-new/img/disc_default.png'
 		},
 		className: {
 			type: String,

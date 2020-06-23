@@ -49,7 +49,6 @@ import {
 import {
 	PlayList
 } from '@/common/class'
-import { mapState } from "vuex"
 import Header from '@/components/header'
 import Scroll from '@/components/scroll'
 import SongItem from '@/base/song-playlist'
@@ -72,7 +71,7 @@ export default {
 		}
 	},
 	computed:{
-		...mapState(["musicInfo"])
+		...Vuex.mapState(["musicInfo"])
 	},
 	created() {
 		this.getData()

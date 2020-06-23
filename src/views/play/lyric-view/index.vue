@@ -17,7 +17,6 @@
 import {
 	findLyricInList
 } from '@utils'
-import BScroll from "better-scroll"
 export default {
   props: {
     showLyricView: {

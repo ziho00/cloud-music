@@ -17,7 +17,7 @@ import {
 } from '@/common/class'
 
 
-import Vue from "vue"
+// import Vue from "vue"
 
 export const playMusic = async ({dispatch, commit}, id = 0) => {
   try {

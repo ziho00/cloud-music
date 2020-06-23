@@ -1,4 +1,4 @@
-import axios from "axios"
+// import axios from "axios"
 import QS from "qs"
 
 axios.defaults.timeout = 10000

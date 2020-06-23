@@ -17,8 +17,6 @@
 </template>
 
 <script>
-import { mapState } from "vuex"
-
 import {
   Song
 } from "@/common/class"
@@ -49,7 +47,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(["musicInfo"])
+    ...Vuex.mapState(["musicInfo"])
   },
   created() {
     this.getData()

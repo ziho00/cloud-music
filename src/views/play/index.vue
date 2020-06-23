@@ -46,10 +46,6 @@
 </template>
 
 <script>
-import {
-  mapState,
-  mapGetters
-} from "vuex"
 import DiskView from './disk-view'
 import LyricView from './lyric-view'
 import Header from '@/components/header'
@@ -74,8 +70,8 @@ export default {
 		}
 	},
 	computed: {
-    ...mapState(["musicInfo", "currentIndex", "currentTime", "totalTime", "lyrics", "isPlaying", "playList"]),
-    ...mapGetters(["curTime_m_s", "totalTime_m_s"])
+    ...Vuex.mapState(["musicInfo", "currentIndex", "currentTime", "totalTime", "lyrics", "isPlaying", "playList"]),
+    ...Vuex.mapGetters(["curTime_m_s", "totalTime_m_s"])
   },
 	methods: {
 		changeMode() {

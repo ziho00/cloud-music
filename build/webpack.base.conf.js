@@ -19,6 +19,13 @@ module.exports = {
       '@utils': path.resolve(__dirname, "../src/utils")
     }
   },
+  externals: {
+    'vue':'Vue',
+    'axios':'axios',
+    'vuex': 'Vuex',
+    'vue-router': 'VueRouter',
+    'better-scroll': 'BScroll'
+  },
   module: {
     rules: [
       {

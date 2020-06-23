@@ -11,7 +11,6 @@
 import {
   search
 } from "@/api/search"
-import { mapState } from "vuex"
 import PlayAllItem from '@/base/playall-item'
 import SongItem from "@/base/song"
 import Scroll from "@/components/scroll"
@@ -37,7 +36,7 @@ export default {
     keywords(){
       return this.$route.params.keywords
     },
-    ...mapState(["musicInfo"])
+    ...Vuex.mapState(["musicInfo"])
   },
   created(){
     this.getData()

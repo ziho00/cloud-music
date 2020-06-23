@@ -45,7 +45,6 @@ import {
   classCreator
 } from "@utils"
 import { SearchHot } from "@/common/class"
-import BScroll from "better-scroll"
 export default {
   data(){
     return {
