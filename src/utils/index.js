@@ -18,8 +18,9 @@ export const iOS_ScrollTop = function() {
  */
 export const debounce = (cb, delay = 500, immdeiate = false) => {
   let timer = null
-  return function (...args) {
+  return function () {
     let context = this
+    let args = Array.from(arguments)
     timer && clearTimeout(timer)
     if (immdeiate){
       let doNow = !timer
@@ -27,7 +28,7 @@ export const debounce = (cb, delay = 500, immdeiate = false) => {
         timer = null
         cb.apply(context, args)
       }, delay)
-      doNow && cb(args)
+      doNow && cb(...args)
     } else {
       timer = setTimeout(() => {
         cb.apply(context, args)
@@ -46,15 +47,17 @@ export const throttle = (cb, duration = 500) => {
   var pre = Date.now()
   return function() {
     var context = this
-    var args = arguments
+    var args = Array.from(arguments)
     var now = Date.now()
     var remaining = duration - now + pre
     timer && clearTimeout(timer)
     if (remaining <= 0) {
-      cb.call(context, args)
+      cb.apply(context, args)
       pre = Date.now()
     } else {
-      timer = setTimeout(cb, remaining)
+      timer = setTimeout(() => {
+        cb.apply(context, args)
+      }, remaining)
     }
   }
 }
