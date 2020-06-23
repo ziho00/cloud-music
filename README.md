@@ -25,8 +25,8 @@
 ## 前端部分 (Vue.js)
 可以先将项目 clone 下来
 ```
-$ git clone https://github.com/ziho00/ziho-cloud-music
-$ cd ziho-cloud-music
+$ git clone https://github.com/ziho00/cloud-music
+$ cd cloud-music
 $ npm install
 ```
 然后启动项目
