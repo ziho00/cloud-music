@@ -68,7 +68,7 @@ export const throttle = (cb, duration = 500) => {
  * @param {*} lyrics 歌词数组
  */
 export const findLyricInList = (now, lyrics) => {
-  // now += 0.5
+  now += 0.3
   if (lyrics.length === 0 || lyrics === null ) { return }
   // 二分法找小于等于目标时间的最后一个元素
   let start = 0, end = lyrics.length - 1
@@ -181,13 +181,13 @@ export const initLyric = (lyric) => {
 export const initTime = (time) => {
   let res = ""
   if (time > -1) {
-    let min = ~~(time / 60)
-    let sec = ~~(time % 60)
+    let min = time / 60 >> 0
+    let sec = time % 60 >> 0
     if (min < 10) {
       min = "0" + min
     }
     if (sec < 10) {
-      sec = "0" + ~~(sec)
+      sec = "0" + (sec >> 0) 
     }
     res = min + ":" + sec
   }

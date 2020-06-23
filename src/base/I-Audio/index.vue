@@ -34,7 +34,7 @@ export default {
       const vm = this
       vm.timer = setInterval(() => {
         vm.$store.dispatch("setCurrentTime", vm.$refs.myAudio.currentTime)
-      }, 500)
+      }, 300)
     },
     clearTimer() {
       const vm = this
