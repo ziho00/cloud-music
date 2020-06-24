@@ -1,7 +1,6 @@
 const path = require("path")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const VueLoaderPlugin = require("vue-loader/lib/plugin")
-
 module.exports = {
   entry: {
     // eslint-disable-next-line no-undef
@@ -12,6 +11,9 @@ module.exports = {
     path: path.resolve(__dirname, "../cloudMusic"),
     filename: "[name].[hash].js"
   },
+  devServer: {
+    hot: true
+  },
   resolve: {
     extensions: ["*", ".js", ".json", ".vue"],
     alias: {
@@ -19,7 +21,7 @@ module.exports = {
       '@utils': path.resolve(__dirname, "../src/utils")
     }
   },
-  externals: {
+  externals: { // 使用外部 CDN 引入的 JS 库
     'vue':'Vue',
     'axios':'axios',
     'vuex': 'Vuex',
@@ -63,6 +65,6 @@ module.exports = {
     // eslint-disable-next-line no-undef
       template: path.resolve(__dirname, "../public/index.html")
     }),
-    new VueLoaderPlugin(),
+    new VueLoaderPlugin()
   ]
 }

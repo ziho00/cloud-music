@@ -10,6 +10,10 @@ import "./common/css/normailze.css"
 import "./common/css/index.css"
 Vue.config.productionTip = false
 
+if(module && module.hot) {
+  module.hot.accept()
+}
+
 setRem()
 window.onresize = function() {
   setRem()
