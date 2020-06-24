@@ -51,7 +51,7 @@ $ npm run dev
 + 使用 CDN 来加载 JS 库
 	
 	原因是我发现每次首屏都要3秒以上，想到是学生服务器，感觉问题就是出在带宽上面了。所以尝试了一下使用外部 `CDN` 会不会有所改善。主要就是将原本项目中一些通过 `import` 方法引入的库，换成了通过 `script` 标签的方式来加载。
-	![使用外部 CDN](http://116.62.70.150/static/image/player_README2.jpg)
+	![使用外部 CDN](http://116.62.70.150/static/image/player_README8.jpg)
 	使用外部的 `CDN` 后，打包体积从 1.88 MB 缩小到了 631 KB，首屏时间也有了很明显的改善
 	+ 未使用 CDN
 		DCL(DOMContentLoaded Event):
