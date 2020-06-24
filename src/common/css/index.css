@@ -1,6 +1,6 @@
 :root {
 	--title-color: #303133;
-	--info-color: #555;
+	--info-color: #333333;
 	--desc-color: #909399;
 	--color-red: #F56C6C;
 	--color-yellow: #E6A23C;
@@ -13,7 +13,7 @@
 	--header-height: 100px;
 	
 	--title-size: 1.1rem;
-	--name-size: 1rem;
+	--name-size: .95rem;
 	--info-size: .8rem;
 	--desc-size: .7rem;
 }
