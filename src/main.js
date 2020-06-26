@@ -2,12 +2,18 @@
 import App from "./App.vue"
 import router from "./router"
 import store from './store'
-import setRem from "./utils/setRem"
+
 import routerConfig from "@utils/routerConfig.js"
-import "normalize.css"
+import setRem from "@utils/setRem"
+
+import Loading from './components/loading/index'
+import Confirm from './components/confirm/index'
+import Toast from './components/toast/index'
 import './common/css/iconfont/iconfont.css'
 import "./common/css/normailze.css"
 import "./common/css/index.css"
+import "normalize.css"
+
 Vue.config.productionTip = false
 
 if(module && module.hot) {
@@ -20,9 +26,7 @@ window.onresize = function() {
 }
 
 // 插件
-import Loading from './components/loading/index'
-import Confirm from './components/confirm/index'
-import Toast from './components/toast/index'
+
 Vue.use(Loading)
 Vue.use(Confirm)
 Vue.use(Toast)

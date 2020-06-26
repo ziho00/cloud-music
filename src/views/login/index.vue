@@ -12,7 +12,9 @@
 			<input class="form__input form__input-password" :class="{ 'form__input-active' : isActive === 2 }"  
 				@focus="isActive = 2" @blur="inputBlur"   v-model="pwd" type="text" placeholder="输入密码">
 			<button  :class="disabled?'form__btn__disabled':'form__btn'" @click="submitLoginForm" :disabled="disabled">登录</button>
-			<button  class="youke-login" @click="anonymousLogin" >游客登录</button>
+			<div class="youke-login pointer" @click="anonymousLogin" >
+				游客登录 <i class="iconfont icon-icon-test50"></i>
+			</div>
 		</div>
 		<div class="copyright">
 			&copy;2020 cloud-music Powered by zihao
@@ -59,6 +61,7 @@ export default {
       }
       this.$store.dispatch("handleLogin", {phone, password: pwd})
         .then(() => {
+					this.$store.dispatch('setAnonymous', false)
           vm.$router.replace("/main")
         })
     },
@@ -320,15 +323,16 @@ button {
 .youke-login {
 	position: fixed;
 	z-index: 100;
-  bottom: 10vh;
-
-	width: 76%;
-	height: 90px;
-	margin: 20px 12%;
-	border-radius: 60px;
+  bottom: 12vh;
+	width: 30vw;
+	margin: 20px 35vw;
+	line-height: 50px;
+	text-align: center;
 	background: transparent;
 	color: rgba(255,255,255,0.9);
-	border: 1px solid rgba(255,255,255,0.9);
 	font-size: 0.9rem;
+}
+.youke-login>i{
+	font-size: 1rem;
 }
 </style>

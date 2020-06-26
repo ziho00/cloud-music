@@ -54,18 +54,14 @@ $ npm run dev
 	![使用外部 CDN](http://116.62.70.150/static/image/player_README8.jpg)
 	使用外部的 `CDN` 后，打包体积从 1.88 MB 缩小到了 631 KB，首屏时间也有了很明显的改善
 	+ 未使用 CDN
-		DCL(DOMContentLoaded Event):
-		![DOMContentLoaded Event](http://116.62.70.150/static/image/player_README5.png)
-		L(Onload Event):
-		![Onload Event](http://116.62.70.150/static/image/player_README6.png)
-		这还是我挑的比较快的一次了....
+		![未使用 CDN](http://116.62.70.150/static/image/play_performance1.jpg)
+		**DCL** (DOMContentLoaded Event): `2787.1 ms`
+		**L** (Onload Event): `3906.9 ms`
 	+ 使用了外部 CDN
-		DCL(DOMContentLoaded Event):
-		![DOMContentLoaded Event](http://116.62.70.150/static/image/player_README3.png)
-		L(Onload Event):
-		![Onload Event](http://116.62.70.150/static/image/player_README4.png)
-
-	可以看到：`DCL` 2758.8 ms => 609.5 ms | `L` 3853.2 ms => 790.8 ms，只能用可怕来形容了，也可以看到学生服务器的带宽是真的低...，没使用外部 `CDN` 的首屏时间居然是，使用了 `CDN` 的 4 ~ 5 倍。
+		![使用了外部 CDN](http://116.62.70.150/static/image/play_performance2.jpg)	
+		**DCL** (DOMContentLoaded Event): `565.8 ms`
+		**L** (Onload Event): `757.4 ms`
+	我取的这两个数据是几次测试中的中间值，可以看到：`DCL` 2787.1 ms => 565.8 ms | `L` 3906.9 ms => 757.4 ms，只能用可怕来形容了，也可以看到学生服务器的带宽是真的低...，没使用外部 `CDN` 的首屏平均耗时是使用了 `CDN` 的 4 ~ 5 倍。
 
 
 
