@@ -66,9 +66,6 @@ export default {
     const vm = this
 		vm.initScroll()
   },
-  updated() {
-    this.scroll.refresh()
-  },
   methods: {
     initScroll() {
       const vm = this

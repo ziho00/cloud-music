@@ -12,7 +12,7 @@
 export default {
   data() {
     return {
-      timer: null
+      timer: null,
     }
   },
   computed: {
@@ -24,6 +24,17 @@ export default {
     },
     changeCurrentTime(newVal) {
       this.$refs.myAudio.currentTime = newVal
+    }
+  },
+  mounted(){
+    this.$refs.myAudio._play = this.$refs.myAudio.play
+    this.$refs.myAudio._load = this.$refs.myAudio.load
+    this.$refs.myAudio.play = function() {
+      this._lockLoad = true
+      this._play()
+    }
+    this.$refs.myAudio.load = function() {
+      this._lockLoad || this._load()
     }
   },
   methods: {
@@ -40,7 +51,6 @@ export default {
     handleEnd() {
       const vm = this
       vm.$store.dispatch("setCurrentTime", vm.$refs.myAudio.currentTime)
-      vm.$store.dispatch("setPlayState", false)
 			vm.$store.dispatch("nextMusic")
     },
     refreshDuration() {
