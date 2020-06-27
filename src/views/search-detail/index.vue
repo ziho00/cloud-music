@@ -59,9 +59,6 @@ export default {
         path: `/search/${this.title}/${item.path}`
       })
     },
-    back(){
-      this.$router.replace("/main/searchHistory")
-    },
     initActive(path){
       const tabs = this.tabs
       let shouldActive = 0

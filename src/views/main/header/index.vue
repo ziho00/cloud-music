@@ -8,7 +8,7 @@
         <i class="iconfont icon-icon-test5"></i>
       </div>
       <form action="">
-        <input class="search-input" @click="handleToSearch" v-model="keywords" @search="toSearchDetail" type="search" placeholder="搜索热门歌曲" />
+        <input class="search-input" @click="handleToSearch" v-model="keywords" @keypress="handleKeypress" type="search" placeholder="搜索热门歌曲" />
       </form>
     </div>
     <div class="search-cancle" v-show="!showUserNav" @click="handleCancleSearch">
@@ -23,7 +23,8 @@
 <script>
 import {
   debounce,
-  addSearchRecord 
+  preventDefault,
+  addSearchRecord,
 } from '@utils'
 export default {
   data() {
@@ -68,15 +69,19 @@ export default {
         this.$refs.searchInput.style.transform = "translateX(0)"
       })
       if (this.$route.path !== "/main/searchHistory") {
-        this.$router.push("/main/searchHistory")
+        this.$router.replace("/main/searchHistory")
+      }
+    },
+    handleKeypress(event) {
+      if(event.keyCode === 13) {
+        preventDefault(event)
+        this.toSearchDetail()
       }
     },
     toSearchDetail(){
       if(this.keywords.trim() == '') { return }
       addSearchRecord(this.keywords)
-      this.$router.push({
-        path: `/search/${this.keywords}`
-      })
+      this.$router.push(`/search/${this.keywords}`)
     },
     handleCancleSearch(){
       this.showUserNav = true
@@ -85,9 +90,7 @@ export default {
         this.$refs.searchInput.style.transform = "translateX(" + clientWidth + "px)"
       })
       this.keywords = ""
-      if (this.$route.path !== "/main"){
-        this.$router.replace("/main")
-      }
+      this.$router.replace("/main")
     },
     handleChangeKeywords() {
       if(this.keywords.trim() == '') return
