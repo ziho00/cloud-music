@@ -6,8 +6,9 @@
     </Header>
     <!-- tab选项栏 -->
     <Tabs :titles="tabs" ref="tabs" :defaultActive="0" :active="activeTab" @changeActive="handleChangeTab"></Tabs>
+    
     <div class="mg-top"></div>
-      <router-view></router-view>
+    <router-view></router-view>
 	</div>
 </template>
 

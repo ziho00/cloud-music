@@ -97,9 +97,7 @@ export default {
       this.$emit('handleKeywordsChange', this.keywords)
     },
     toSingerPage() {
-      this.$router.push({
-        path: "/singers"
-      })
+      this.$router.push("/singers")
     },
   }
 }

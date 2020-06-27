@@ -239,20 +239,24 @@ export const classCreator = (list = [], Ctor) => {
   }, [])
 }
 
+
+/**
+ * 阻止事件冒泡
+ * @param {*} event 
+ */
 export function stopPropagation(event) {
   event.stopPropagation();
 }
+
 /**
  * 清除默认事件
  * @param {*} event 
  * @param {*} isStopPropagation 是否阻止事件冒泡
  */
 export function preventDefault(event, isStopPropagation) {
-  /* istanbul ignore else */
   if (typeof event.cancelable !== 'boolean' || event.cancelable) {
     event.preventDefault();
   }
-
   if (isStopPropagation) {
     stopPropagation(event);
   }
