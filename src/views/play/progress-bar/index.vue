@@ -87,7 +87,7 @@ export default {
     move(event) {
       if (!event) { return }
       const vm = this
-      const X = event[0].touches[0].clientX
+      const X = event.touches[0].clientX
       const {startX, endX} = vm
       if (X < startX) {
         vm.curX = 0
