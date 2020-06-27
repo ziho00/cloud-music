@@ -20,6 +20,8 @@ const Singers = () => import(/* webpackChunkName: "singer" */ "@/views/singer-li
 const SingerDetail = () => import(/* webpackChunkName: "singer" */ "@/views/singer-list/singer-detail")
 
 export default new VueRouter({
+  mode: 'history',
+  base: '/player',
   routes: [
     {
       path: '/',

@@ -9,10 +9,17 @@ module.exports = {
   output: {
     // eslint-disable-next-line no-undef
     path: path.resolve(__dirname, "../cloudMusic"),
-    filename: "[name].[hash].js"
+    filename: "[name].[hash].js",
+    publicPath: '/player/'
   },
   devServer: {
-    hot: true
+    hot: true,
+    historyApiFallback: {
+      rewrites: [{
+        from: /.*/g,
+        to: '/index.html' //与output的publicPath有关(HTMLplugin生成的html默认为index.html)
+      }]
+    }
   },
   resolve: {
     extensions: ["*", ".js", ".json", ".vue"],
