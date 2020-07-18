@@ -32,17 +32,17 @@
 <script>
 import {
   search
-} from "@/api/search"
+} from '@/api/search'
 import {
   Song,
   SearchSinger,
   SearchPlayList
-} from "@/common/class"
-import { classCreator } from "@utils"
-import PlayListItem from "@/base/playlist"
-import SingerItem from "@/base/singer"
-import SongItem from "@/base/song"
-import Scroll from "@/components/scroll"
+} from '@/common/class'
+import { classCreator } from '@utils'
+import PlayListItem from '@/base/playlist'
+import SingerItem from '@/base/singer'
+import SongItem from '@/base/song'
+import Scroll from '@/components/scroll'
 
 export default {
   components: {
@@ -60,7 +60,7 @@ export default {
     }
   },
   computed: {
-    ...Vuex.mapState(["musicInfo"])
+    ...Vuex.mapState(['musicInfo'])
   },
   created(){
     this.getData()
@@ -73,7 +73,7 @@ export default {
   methods: {
     async getData(){
       this.$loading.show({
-        message: "加载中...",
+        message: '加载中...',
         banClick: true
       })
       try {
@@ -89,9 +89,9 @@ export default {
       }
     },
     handlePlay(song, index) {
-      this.$store.dispatch("playMusic", song.id)
-      this.$store.dispatch("setCurrentIndex", index)
-      this.$store.dispatch("setPlayList", this.songs)
+      this.$store.dispatch('playMusic', song.id)
+      this.$store.dispatch('setCurrentIndex', index)
+      this.$store.dispatch('setPlayList', this.songs)
     },
     playAll(){
       this.handlePlay(this.songs[0], 0)

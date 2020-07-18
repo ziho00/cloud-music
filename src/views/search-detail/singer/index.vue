@@ -7,15 +7,15 @@
 </template>
 
 <script>
-import Scroll from "@/components/scroll"
-import SingerItem from "@/base/singer"
-import { classCreator } from "@utils"
+import Scroll from '@/components/scroll'
+import SingerItem from '@/base/singer'
+import { classCreator } from '@utils'
 import {
   search
-} from "@/api/search"
+} from '@/api/search'
 import {
   SearchSinger
-} from "@/common/class"
+} from '@/common/class'
 export default {
   components: {
     SingerItem,
@@ -38,7 +38,7 @@ export default {
   methods: {
     async getData(){
       this.$loading.show({
-        message: "加载中...",
+        message: '加载中...',
         banClick: true
       })
       try {

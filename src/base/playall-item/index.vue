@@ -19,9 +19,9 @@ export default {
 	},
 	methods: {
 		playAll() {
-			this.$store.dispatch("playMusic", this.songs[0].id)
-      this.$store.dispatch("setCurrentIndex", 0)
-      this.$store.dispatch("setPlayList", this.songs)
+			this.$store.dispatch('playMusic', this.songs[0].id)
+      this.$store.dispatch('setCurrentIndex', 0)
+      this.$store.dispatch('setPlayList', this.songs)
 		}
 	}
 }

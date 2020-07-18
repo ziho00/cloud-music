@@ -20,11 +20,11 @@ export default {
   props: {
     curTime_m_s: {
       type: String,
-      default: "00:00"
+      default: '00:00'
     },
     totalTime_m_s: {
       type: String,
-      default: "00:00"
+      default: '00:00'
     },
     currentTime: {
       type: Number,
@@ -63,7 +63,7 @@ export default {
     vm.endX = vm.startX + vm.$refs.progressBar.clientWidth
     vm.totalWidth = vm.endX - vm.startX
     vm.handleMouseMove = throttle(this.move, 50)
-    document.querySelector(".bar-btn").addEventListener("touchstart", vm.dragBar)
+    document.querySelector('.bar-btn').addEventListener('touchstart', vm.dragBar)
   },
   methods: {
     changeValue(event) {
@@ -81,8 +81,8 @@ export default {
     },
     dragBar() {
       this.isDraging = true
-      document.addEventListener("touchmove", this.handleMouseMove)
-      document.addEventListener("touchend", this.stop)
+      document.addEventListener('touchmove', this.handleMouseMove)
+      document.addEventListener('touchend', this.stop)
     },
     move(event) {
       if (!event) { return }
@@ -98,15 +98,15 @@ export default {
       }
     },
     stop() {
-      document.removeEventListener("touchmove", this.handleMouseMove)
-      document.removeEventListener("touchend", this.stop)
+      document.removeEventListener('touchmove', this.handleMouseMove)
+      document.removeEventListener('touchend', this.stop)
       this.handleTouchChangeVal(this.value)
       this.isDraging = false
     },
     handleTouchChangeVal(val) {
       const { totalTime } = this
       const newCurrentTime = (val / 100) * totalTime
-      this.$store.dispatch("ChnageCurrentTime", newCurrentTime)
+      this.$store.dispatch('ChnageCurrentTime', newCurrentTime)
     }
   }
 }

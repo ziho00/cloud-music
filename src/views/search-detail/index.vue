@@ -14,7 +14,7 @@
 
 <script>
 import Header from '@/components/header'
-import Tabs from "@/components/tabs"
+import Tabs from '@/components/tabs'
 export default {
   components: {
     Header,
@@ -25,17 +25,17 @@ export default {
       songs: [],
       tabs: [
         {
-          title: "综合",
-          path: ""
+          title: '综合',
+          path: ''
         }, {
-          title: "单曲",
-          path: "songs"
+          title: '单曲',
+          path: 'songs'
         }, {
-          title: "歌单",
-          path: "playlists"
+          title: '歌单',
+          path: 'playlists'
         }, {
-          title: "歌手",
-          path: "singers"
+          title: '歌手',
+          path: 'singers'
         }
       ],
       activeTab: 0
@@ -47,7 +47,7 @@ export default {
     }
   },
   watch: {
-    "$route.path"(val) {
+    '$route.path'(val) {
       this.initActive(val)
     }
   },

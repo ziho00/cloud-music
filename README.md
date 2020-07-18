@@ -37,7 +37,7 @@ $ npm run dev
 
 项目内容：
 
-![Vue.js 打造的移动端音乐播发器](http://116.62.70.150/static/image/cloudMusic.png "Vue.js 打造的移动端音乐播发器")
+![Vue.js 打造的移动端音乐播发器](http://116.62.70.150/static/image/cloudMusicContent.png "Vue.js 打造的移动端音乐播发器")
 
 还有很多模块都可以做但目前还没做的。不过有的是因为后台的数据接口不稳定，...特别是用户相关的接口。如果后台获取数据的项目后期不维护了，时间一长有的接口可能就访问不了了。
 

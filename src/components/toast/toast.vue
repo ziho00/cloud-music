@@ -16,13 +16,13 @@ export default {
 	data() {
     return {
       iconfont: {
-        success: "icon-icon-test23",
-        warning: "icon-icon-test32",
-        error: "icon-icon-test24"
+        success: 'icon-icon-test23',
+        warning: 'icon-icon-test32',
+        error: 'icon-icon-test24'
       },
       visiable: false,
-      msg: "",
-      icon: ""
+      msg: '',
+      icon: ''
     }
   },
 }

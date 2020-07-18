@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import Scroll from "@/components/scroll"
+import Scroll from '@/components/scroll'
 export default {
   props: {
     visiable: {
@@ -56,20 +56,15 @@ export default {
 	mounted(){
 		this.inited = true
 	},
-	activated(){
-		if(this.inited) {
-			// this.$ref.scroll.refresh()
-		}
-	},
   watch: {
     visiable(val) {
       if (val) {
         this.$nextTick(() => {
-          this.$refs.playList.style.transform = "translateY(0vh)"
+          this.$refs.playList.style.transform = 'translateY(0vh)'
         })
       } else {
         this.$nextTick(() => {
-          this.$refs.playList.style.transform = "translateY(65vh)"
+          this.$refs.playList.style.transform = 'translateY(65vh)'
         })
       }
     },
@@ -79,8 +74,8 @@ export default {
       this.$emit('hide')
     },
     handlePlay(song, index) {
-			this.$store.dispatch("playMusic", song.id)
-			this.$store.dispatch("setCurrentIndex", index)
+			this.$store.dispatch('playMusic', song.id)
+			this.$store.dispatch('setCurrentIndex', index)
     }
   }
 }

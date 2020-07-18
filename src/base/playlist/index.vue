@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import ImgLazy from "../img-lazy"
+import ImgLazy from '../img-lazy'
 export default {
 	components: {
 		ImgLazy
@@ -21,7 +21,7 @@ export default {
   },
   methods: {
     toPlayList(){
-      this.$emit("click", this.playList.id)
+      this.$emit('click', this.playList.id)
     }
   }
 }

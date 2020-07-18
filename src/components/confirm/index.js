@@ -23,8 +23,8 @@ Confirm.install = function(Vue) {
 		document.body.append(instance.$el)
 	}
 	Vue.prototype.$confirm = function({title, msg}) {
-		instance.title = title || ""
-		instance.msg = msg || ""
+		instance.title = title || ''
+		instance.msg = msg || ''
 		instance.visiable = true
 		return instance.isConfirm(returnAnInstance)
 	}

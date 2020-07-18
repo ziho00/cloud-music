@@ -6,10 +6,10 @@ export default function routerConfig(router) {
 		if (login || isAnonymous) {
 			next()
 		} else {
-			if (to.path === "/") { // 如果是登录页面的话，直接next() -->解决注销后的循环执行bug
+			if (to.path === '/') { // 如果是登录页面的话，直接next() -->解决注销后的循环执行bug
 				next()
 			} else { // 否则 跳转到登录页面
-				next({ path: "/" })
+				next({ path: '/' })
 			}
 		}
 	})

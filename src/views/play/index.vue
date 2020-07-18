@@ -64,14 +64,14 @@ export default {
 	data(){
 		return {
 			playMode: 0,
-      modes: ["列表循环", "单曲循环", "随机播放"],
+      modes: ['列表循环', '单曲循环', '随机播放'],
       showPlayList: false,
       showDiskView: true
 		}
 	},
 	computed: {
-    ...Vuex.mapState(["musicInfo", "currentIndex", "currentTime", "totalTime", "lyrics", "isPlaying", "playList"]),
-    ...Vuex.mapGetters(["curTime_m_s", "totalTime_m_s"])
+    ...Vuex.mapState(['musicInfo', 'currentIndex', 'currentTime', 'totalTime', 'lyrics', 'isPlaying', 'playList']),
+    ...Vuex.mapGetters(['curTime_m_s', 'totalTime_m_s'])
   },
 	methods: {
 		changeMode() {
@@ -83,7 +83,7 @@ export default {
 			this.$toast({
 				msg: this.modes[this.playMode]
 			}, 2000)
-      this.$store.dispatch("setPlayMode", this.playMode)
+      this.$store.dispatch('setPlayMode', this.playMode)
 		},
 		handleHidePlaylist(){
 			this.showPlayList = false
@@ -103,8 +103,8 @@ export default {
       } else {
         nextIndex = currentIndex - 1
 			}
-			this.$store.dispatch("playMusic", playList[nextIndex].id)
-			this.$store.dispatch("setCurrentIndex", nextIndex)
+			this.$store.dispatch('playMusic', playList[nextIndex].id)
+			this.$store.dispatch('setCurrentIndex', nextIndex)
 		},
 		PlayNextSong() {
 			const {playList} = this
@@ -115,7 +115,7 @@ export default {
 			}, 2000)
         return
 			}
-			this.$store.dispatch("nextMusic")
+			this.$store.dispatch('nextMusic')
 		},
 		togglePlay() {
 			const {playList} = this
@@ -126,7 +126,7 @@ export default {
 			}, 2000)
         return
 			}
-			this.$store.dispatch("setPlayState", !this.isPlaying)
+			this.$store.dispatch('setPlayState', !this.isPlaying)
 		},
 
 	}

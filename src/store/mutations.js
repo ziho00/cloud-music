@@ -1,4 +1,4 @@
-import * as type from "./mutation-typs"
+import * as type from './mutation-typs'
 
 const mutations = {
   [type.SET_MUSIC_URL](state, musicUrl) {

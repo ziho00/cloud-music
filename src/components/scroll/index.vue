@@ -80,13 +80,13 @@ export default {
         click: true,
         probeType: vm.probeType
 			})
-			vm.scroll.on("scroll", (event) => {
+			vm.scroll.on('scroll', (event) => {
 				this.hasLazyItem && this.lazy()
-				vm.$emit("scroll", event)
+				vm.$emit('scroll', event)
 			})
-			vm.scroll.on("scrollEnd", () => {
+			vm.scroll.on('scrollEnd', () => {
 				this.hasLazyItem && this.lazy()
-				vm.$emit("scrollEnd", event)
+				vm.$emit('scrollEnd', event)
 			})
 		},
 		refresh(){

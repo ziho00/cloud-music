@@ -31,7 +31,7 @@ export default {
     return {
       len: 0,
       value: 0,
-      keywords: "",
+      keywords: '',
       showUserNav: true,
       changeKeyWords: null,
     }
@@ -43,12 +43,12 @@ export default {
   },
   watch: {
      keywords(val) {
-      if(val == "" && this.$route.path === '/main/searchList'){
+      if(val == '' && this.$route.path === '/main/searchList'){
         this.$router.replace('/main/searchHistory')
       } else if(val !== '' && this.$route.path !== '/main/searchList') {
         this.$router.replace('/main/searchList')
       }
-      if (val.trim() !== "") {
+      if (val.trim() !== '') {
         this.changeKeyWords()
       }
     },
@@ -61,15 +61,15 @@ export default {
       this.$emit('clickUserNav')
     },
     handleToSearch(){
-      if (this.$route.path === "/main/searchList") {
+      if (this.$route.path === '/main/searchList') {
         return
       }
       this.showUserNav = false
       this.$nextTick(() => {
-        this.$refs.searchInput.style.transform = "translateX(0)"
+        this.$refs.searchInput.style.transform = 'translateX(0)'
       })
-      if (this.$route.path !== "/main/searchHistory") {
-        this.$router.replace("/main/searchHistory")
+      if (this.$route.path !== '/main/searchHistory') {
+        this.$router.replace('/main/searchHistory')
       }
     },
     handleKeypress(event) {
@@ -87,17 +87,17 @@ export default {
       this.showUserNav = true
       this.$nextTick(()=>{
         let clientWidth = window.fontSize * 3.125
-        this.$refs.searchInput.style.transform = "translateX(" + clientWidth + "px)"
+        this.$refs.searchInput.style.transform = 'translateX(' + clientWidth + 'px)'
       })
-      this.keywords = ""
-      this.$router.replace("/main")
+      this.keywords = ''
+      this.$router.replace('/main')
     },
     handleChangeKeywords() {
       if(this.keywords.trim() == '') return
       this.$emit('handleKeywordsChange', this.keywords)
     },
     toSingerPage() {
-      this.$router.push("/singers")
+      this.$router.push('/singers')
     },
   }
 }

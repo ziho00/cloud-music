@@ -7,11 +7,11 @@
 </template>
 
 <script>
-import Scroll from "@/components/scroll"
-import PlayListItem from "@/base/playlist"
-import { search } from "@/api/search"
-import { SearchPlayList } from "@/common/class"
-import { classCreator } from "@utils"
+import Scroll from '@/components/scroll'
+import PlayListItem from '@/base/playlist'
+import { search } from '@/api/search'
+import { SearchPlayList } from '@/common/class'
+import { classCreator } from '@utils'
 export default {
   components: {
     PlayListItem,
@@ -39,7 +39,7 @@ export default {
   methods: {
     async getData(){
       this.$loading.show({
-        message: "加载中...",
+        message: '加载中...',
         banClick: true
       })
       try {

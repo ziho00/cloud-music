@@ -39,12 +39,12 @@
 <script>
 import {
   searchHotDetail
-} from "@/api/search"
+} from '@/api/search'
 import { 
   addSearchRecord,
   classCreator
-} from "@utils"
-import { SearchHot } from "@/common/class"
+} from '@utils'
+import { SearchHot } from '@/common/class'
 export default {
   data(){
     return {
@@ -65,7 +65,7 @@ export default {
   },
   methods: {
 		getSearchHistory(){
-			this.searchHistories = JSON.parse(window.localStorage.getItem("searchHistories")) || []
+			this.searchHistories = JSON.parse(window.localStorage.getItem('searchHistories')) || []
 		},
     async getSearchHot() {
 			let vm = this
@@ -89,7 +89,7 @@ export default {
         width += wrapperList[i].clientWidth
       }
       width += len * margin
-      vm.$refs.wrapper.style.width = width + "px"
+      vm.$refs.wrapper.style.width = width + 'px'
       if (!vm.scroll) {
         vm.scroll = new BScroll(vm.$refs.tab, {
           scrollX: true,
@@ -110,10 +110,10 @@ export default {
     },
     handleClicClear() {
       this.$confirm({
-        msg: "确定要清空历史记录？"
+        msg: '确定要清空历史记录？'
       })
         .then(() => {
-          window.localStorage.setItem("searchHistories", JSON.stringify([]))
+          window.localStorage.setItem('searchHistories', JSON.stringify([]))
           this.searchHistories = []
         })
         .catch(() => {})

@@ -1,8 +1,8 @@
-import state from "./state"
+import state from './state'
 
 import {
   initTime
-} from "@utils"
+} from '@utils'
 
 const getters = {
   curTime_m_s: function() {

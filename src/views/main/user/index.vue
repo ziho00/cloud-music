@@ -42,25 +42,25 @@ export default {
       navItemList: [ // 导航对象
         {
           iconfont: null,
-          title: "每日推荐",
-          path: "/recommend",
+          title: '每日推荐',
+          path: '/recommend',
           isDiaryIcon: true
         }, {
-          iconfont: "icon-icon-test36",
-          title: "我收藏的歌单",
-          path: "/collections"
+          iconfont: 'icon-icon-test36',
+          title: '我收藏的歌单',
+          path: '/collections'
         }, {
-          iconfont: "icon-tianjiazhuanlan_chuangjianzhuanlan",
-          title: "我创建的歌单",
-          path: "/userSongs"
+          iconfont: 'icon-tianjiazhuanlan_chuangjianzhuanlan',
+          title: '我创建的歌单',
+          path: '/userSongs'
         }, {
-          iconfont: "icon-icon-test29",
-          title: "周杰伦单曲",
-          path: "/JayChou"
+          iconfont: 'icon-icon-test29',
+          title: '周杰伦单曲',
+          path: '/JayChou'
         }
       ],
       show: false,
-      dateNum: ""
+      dateNum: ''
     }
   },
   computed: {
@@ -72,11 +72,11 @@ export default {
       let clientWidth = fontSize * 13.75
       if (newValue){
         this.$nextTick(() => {
-          this.$refs.userBar.style.transform = "translateX(0px)"
+          this.$refs.userBar.style.transform = 'translateX(0px)'
         })
       } else {
         this.$nextTick(() => {
-          this.$refs.userBar.style.transform = "translateX(" + -clientWidth + "px)"
+          this.$refs.userBar.style.transform = 'translateX(' + -clientWidth + 'px)'
         })
       }
     }
@@ -90,12 +90,12 @@ export default {
     },
     logout() {
       this.$confirm({
-        title: "退出",
-        msg: "确定退出登录?"
+        title: '退出',
+        msg: '确定退出登录?'
       })
         .then(() => {
           this.show = false
-          this.$router.replace("/login")
+          this.$router.replace('/login')
         })
         .catch(() => {})
     },
@@ -108,27 +108,27 @@ export default {
         return
       }
       this.show = false
-      if (path === "/collections") {
+      if (path === '/collections') {
         this.$confirm({
-          title: "提示",
-          msg: "页面接口有问题，暂时不能使用"
+          title: '提示',
+          msg: '页面接口有问题，暂时不能使用'
         })
           .then()
           .catch()
         return
       }
-      if (path === "/recommend") {
+      if (path === '/recommend') {
         this.$confirm({
-          title: "提示",
-          msg: "页面接口有问题，暂时不能使用"
+          title: '提示',
+          msg: '页面接口有问题，暂时不能使用'
         })
           .then()
           .catch()
         return
       } else {
         this.$confirm({
-          title: "提示",
-          msg: "该页面尚未开发完毕，敬请期待!"
+          title: '提示',
+          msg: '该页面尚未开发完毕，敬请期待!'
         })
           .then()
           .catch()
@@ -138,7 +138,7 @@ export default {
     },
     handleLogin(){
       this.show = false
-      this.$router.replace("/")
+      this.$router.replace('/')
     }
   }
 }

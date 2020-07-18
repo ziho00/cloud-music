@@ -16,7 +16,7 @@ export default {
     }
   },
   computed: {
-    ...Vuex.mapState(["musicInfo", "musicUrl", "isPlaying", "changeCurrentTime"])
+    ...Vuex.mapState(['musicInfo', 'musicUrl', 'isPlaying', 'changeCurrentTime'])
   },
   watch: {
     isPlaying(newVal) {
@@ -41,7 +41,7 @@ export default {
     setTimer(){
       const vm = this
       vm.timer = setInterval(() => {
-        vm.$store.dispatch("setCurrentTime", vm.$refs.myAudio.currentTime)
+        vm.$store.dispatch('setCurrentTime', vm.$refs.myAudio.currentTime)
       }, 300)
     },
     clearTimer() {
@@ -50,11 +50,11 @@ export default {
     },
     handleEnd() {
       const vm = this
-      vm.$store.dispatch("setCurrentTime", vm.$refs.myAudio.currentTime)
-			vm.$store.dispatch("nextMusic")
+      vm.$store.dispatch('setCurrentTime', vm.$refs.myAudio.currentTime)
+			vm.$store.dispatch('nextMusic')
     },
     refreshDuration() {
-      this.$store.dispatch("setTotalTime", this.$refs.myAudio.duration)
+      this.$store.dispatch('setTotalTime', this.$refs.myAudio.duration)
       this.setTimer()
     },
     play() { // 播放（点击暂停后点击的播放）

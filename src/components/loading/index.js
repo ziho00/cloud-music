@@ -25,11 +25,11 @@ Loading.install = function(Vue) {
 	Vue.prototype.$loading = {
 		show({msg, banClick}) {
 			instance.banClick = banClick || false
-      instance.msg = msg || "加载中..."
+      instance.msg = msg || '加载中...'
 			instance.visiable = true
 		},
 		hide(){
-			instance.msg = ""
+			instance.msg = ''
 			instance.visiable = false
 			returnAnInstance(instance)
 		}

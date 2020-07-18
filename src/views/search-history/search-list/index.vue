@@ -15,13 +15,13 @@
 <script>
 import {
   searchSuggest
-} from "@/api/search"
-import { addSearchRecord } from "@utils"
+} from '@/api/search'
+import { addSearchRecord } from '@utils'
 export default {
   props: {
     keywords: {
       type: String,
-      default: ""
+      default: ''
     }
   },
   data() {
@@ -31,8 +31,8 @@ export default {
   },
   watch: {
     keywords(val) {
-      let searchHistories = JSON.parse(window.localStorage.getItem("searchHistories")) || []
-      val !== "" && searchHistories.unshift(val)
+      let searchHistories = JSON.parse(window.localStorage.getItem('searchHistories')) || []
+      val !== '' && searchHistories.unshift(val)
       this.getSearchList(val)
     }
   },
@@ -41,7 +41,7 @@ export default {
   },
   methods: {
     async getSearchList(keywords) {
-			if (keywords.trim() === "") { return }
+			if (keywords.trim() === '') { return }
 			try {
 				const res = await searchSuggest({keywords})
 				this.searchList = res.result.songs

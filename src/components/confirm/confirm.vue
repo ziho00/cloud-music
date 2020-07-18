@@ -25,8 +25,8 @@
 export default {
 	data(){
     return {
-      title: "",
-      msg: "",
+      title: '',
+      msg: '',
       visiable: false
     }
 	},

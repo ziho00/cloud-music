@@ -1,11 +1,11 @@
 <template>
 	<div>
 		<!-- 轮播 -->
-		<Swapper v-if="banners.length > 0" class="swapper">
-			<div class="swapper-list" v-for="item in banners" :key="item.id">
+		<Swiper v-if="banners.length > 0" class="swiper">
+			<div class="swiper-list" v-for="item in banners" :key="item.id">
 				<img :src="item.imageUrl" alt="轮播图">
 			</div>
-		</Swapper>
+		</Swiper>
 		<!-- 音乐排行榜 -->
 		<LeaderBoard></LeaderBoard>
 		<!-- 推荐歌单 -->
@@ -17,12 +17,12 @@
 import {
 	getBanner
 }  from '@/api/home'
-import Swapper from '@/components/swapper'
+import Swiper from '@/components/swiper'
 import LeaderBoard from './leader-board'
 import RecommendPlaylist from './recommend-playlist'
 export default {
 	components: {
-		Swapper,
+		Swiper,
 		LeaderBoard,
 		RecommendPlaylist,
 	},
@@ -48,15 +48,15 @@ export default {
 </script>
 
 <style scoped>
-.swapper{
+.swiper{
 	overflow: hidden;
 	padding: 20px 0;
 }
-.swapper-list{
+.swiper-list{
 	width: calc(100vw - 40px);
 	margin: 0 20px;
 }
-.swapper-list>img {
+.swiper-list>img {
 	width: calc(100vw - 40px);
 	border-radius: 12px;	
 	height: auto;

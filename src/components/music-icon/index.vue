@@ -34,10 +34,10 @@ export default {
 		}
 	},
 	computed: {
-		...Vuex.mapState(["musicInfo", "currentTime", "totalTime", "isPlaying"])
+		...Vuex.mapState(['musicInfo', 'currentTime', 'totalTime', 'isPlaying'])
 	}, 
 	watch: {
-		"$route"(to){
+		'$route'(to){
 			if (to.meta.showMusicIcon) {
         this.showMusicIcon = true
       } else {
@@ -57,11 +57,11 @@ export default {
 		initProgressBar(){
       const {value, total} = this
       let circle = this.$refs.path
-        , len = 2 * Math.PI * circle.getAttribute("r")
+        , len = 2 * Math.PI * circle.getAttribute('r')
       this.len = len
       circle.style.strokeDasharray = len
       circle.style.strokeDashoffset = len
-      circle.style.transition = "stroke-dashoffset .3s ease-in-out"
+      circle.style.transition = 'stroke-dashoffset .3s ease-in-out'
       circle.style.strokeDashoffset = (1 - (value / total)) * len
     },
     changeProgressBar(newValue, total){
@@ -72,7 +72,7 @@ export default {
     },
     toPlayView() {
       const vm = this
-      vm.$router.push("/play")
+      vm.$router.push('/play')
     }
 	}
 }

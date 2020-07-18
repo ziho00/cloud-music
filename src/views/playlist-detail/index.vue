@@ -45,7 +45,7 @@
 <script>
 import {
   getSongsList
-} from "@/api/songList"
+} from '@/api/songList'
 import {
 	PlayList
 } from '@/common/class'
@@ -71,7 +71,7 @@ export default {
 		}
 	},
 	computed:{
-		...Vuex.mapState(["musicInfo"])
+		...Vuex.mapState(['musicInfo'])
 	},
 	created() {
 		this.getData()
@@ -86,7 +86,7 @@ export default {
 			const { id } = this.$route.params
 			this.inited = true
 			this.$loading.show({
-        message: "加载中...",
+        message: '加载中...',
         banClick: true
       })
 			try {
@@ -101,9 +101,9 @@ export default {
 			this.$loading.hide()
 		},
 		handlePlay(song, index) {
-			this.$store.dispatch("playMusic", song.id)
-      this.$store.dispatch("setCurrentIndex", index)
-      this.$store.dispatch("setPlayList", this.songs)
+			this.$store.dispatch('playMusic', song.id)
+      this.$store.dispatch('setCurrentIndex', index)
+      this.$store.dispatch('setPlayList', this.songs)
 		}
 	}
 }

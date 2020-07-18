@@ -1,6 +1,6 @@
 <template>
 	<transition name="show">
-		<div class="lyric-view" v-show="showLyricView">
+		<div class="lyric-view" ref="view" v-show="showLyricView">
 			<div class="scroll-view" v-if="lyrics">
 				<div class="_wrapper" ref="scrollview">
 					<div class="_content" ref="lyricScroll">
@@ -36,14 +36,15 @@ export default {
     return {
       scroll: null,
       currentLyric: -1,
-      defaultTranslate: 0
+      defaultTranslate: 0,
+      scrollNum: 5
     }
   },
   watch: {
     showLyricView(val){
       const current = this.currentLyric
-      if (val && current >= 5) {
-        const elem = this.$refs.lyricItem[current - 5]
+      if (val && current >= this.scrollNum) {
+        const elem = this.$refs.lyricItem[current - this.scrollNum]
         this.$nextTick(() => {
           this.scroll.scrollToElement(elem, 500)
         })
@@ -54,10 +55,10 @@ export default {
       this.currentLyric = findLyricInList(val, this.lyrics)
     },
     currentLyric(newVal) {
-      if (newVal < 5) {
+      if (newVal < this.scrollNum) {
         this.scroll.scrollTo(0, 0, 300)
       } else {
-        const elem = this.$refs.lyricItem[newVal - 5]
+        const elem = this.$refs.lyricItem[newVal - this.scrollNum]
         this.scroll.scrollToElement(elem, 300)
       }
     }
@@ -73,10 +74,14 @@ export default {
         vm.scroll.refresh()
         return void 0
       }
-      vm.scroll = new BScroll(this.$refs.scrollview, {
-        scrollY: true,
-        click: () => { vm.$parent.hideLyricView() },
-        probeType: vm.probeType
+      this.$nextTick(() => {
+        vm.scroll = new BScroll(this.$refs.scrollview, {
+          scrollY: true,
+          click: () => { vm.$parent.hideLyricView() },
+          probeType: vm.probeType
+        })
+        // 初始化第几句歌词开始滚动
+        vm.scrollNum = ((window.screen.availHeight  - window.fontSize * 9.2) / (window.fontSize * 2.5) >> 1) - 1
       })
     },
   }
@@ -90,7 +95,7 @@ export default {
 	height: calc(100vh - 290px);
 }
 .lyric-item{
-  padding: 15px 0;
+  padding: 15px 25px;
   line-height: 50px;
   text-align: center;
   font-size: var(--name-size);

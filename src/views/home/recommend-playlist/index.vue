@@ -10,12 +10,12 @@
 <script>
 import {
   getRecommendedSongsList
-} from "@/api/home"
+} from '@/api/home'
 import {
   Playlist
 } from '@/common/class'
 import { classCreator } from '@utils'
-import PlaylistView from "@/components/playlist"
+import PlaylistView from '@/components/playlist'
 export default {
   components: {
     PlaylistView

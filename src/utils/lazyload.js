@@ -4,7 +4,7 @@ import {
 export default function LazyLoad() {
   const lazyLoad = throttle(() => {
     // 获取所有 lazy 图片的 dom 
-    let lazyImages = Array.from(document.querySelectorAll("img.lazy"))
+    let lazyImages = Array.from(document.querySelectorAll('img.lazy'))
     if(lazyImages.length === 0) {
       // window.removeEventListener("resize", lazyLoad)
       // window.removeEventListener("orientationchange", lazyLoad)
@@ -15,7 +15,7 @@ export default function LazyLoad() {
       if(isInViewport(lazyImages[i])){
         // 在视口范围内 加载图片 去掉 lazy class 
         lazyImages[i].src = lazyImages[i].dataset.src
-        lazyImages[i].classList.remove("lazy")
+        lazyImages[i].classList.remove('lazy')
       } else {
         // 找到不符合的就可以停止遍历了 因为后面的都不会符合
         break
@@ -38,6 +38,6 @@ function isInViewport(el) {
   // 元素 display样式不为 none
   // Element.getBoundingClientRect() 方法返回元素的大小及其相对于视口的位置。
   const notBelow = el.getBoundingClientRect().top <= window.innerHeight 
-  const visable = getComputedStyle(el).display !== "none" 
+  const visable = getComputedStyle(el).display !== 'none' 
 	return notBelow && visable
 }

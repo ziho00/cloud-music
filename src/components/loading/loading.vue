@@ -19,7 +19,7 @@ export default {
 	data(){
 		return{
 			visiable: false,
-      msg: "",
+      msg: '',
       banClick: true
 		}
 	}

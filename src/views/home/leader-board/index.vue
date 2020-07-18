@@ -19,29 +19,29 @@ export default {
     return {
       leaderboards: [
         {
-          imgUrl: "http://p2.music.126.net/N2HO5xfYEqyQ8q6oxCw8IQ==/18713687906568048.jpg",
+          imgUrl: 'http://p2.music.126.net/N2HO5xfYEqyQ8q6oxCw8IQ==/18713687906568048.jpg',
           id: 3779629,
-          name: "新歌榜"
+          name: '新歌榜'
         }, {
-          imgUrl: "http://p2.music.126.net/GhhuF6Ep5Tq9IEvLsyCN7w==/18708190348409091.jpg",
+          imgUrl: 'http://p2.music.126.net/GhhuF6Ep5Tq9IEvLsyCN7w==/18708190348409091.jpg',
           id: 3778678,
-          name: "热歌榜"
+          name: '热歌榜'
         }, {
-          imgUrl: "http://p2.music.126.net/sBzD11nforcuh1jdLSgX7g==/18740076185638788.jpg",
+          imgUrl: 'http://p2.music.126.net/sBzD11nforcuh1jdLSgX7g==/18740076185638788.jpg',
           id: 2884035,
-          name: "原创榜"
+          name: '原创榜'
         }, {
-          imgUrl: "http://p2.music.126.net/DrRIg6CrgDfVLEph9SNh7w==/18696095720518497.jpg",
+          imgUrl: 'http://p2.music.126.net/DrRIg6CrgDfVLEph9SNh7w==/18696095720518497.jpg',
           id: 19723756,
-          name: "飙升榜"
+          name: '飙升榜'
         }, {
-          imgUrl: "http://p2.music.126.net/8-GBrukQ3BHhs4CmK6qE4w==/109951163424197392.jpg",
+          imgUrl: 'http://p2.music.126.net/8-GBrukQ3BHhs4CmK6qE4w==/109951163424197392.jpg',
           id: 10520166,
-          name: "国电榜"
+          name: '国电榜'
         }, {
-          imgUrl: "http://p1.music.126.net/VQOMRRix9_omZbg4t-pVpw==/18930291695438269.jpg",
+          imgUrl: 'http://p1.music.126.net/VQOMRRix9_omZbg4t-pVpw==/18930291695438269.jpg',
           id: 180106,
-          name: "UK排行榜周榜"
+          name: 'UK排行榜周榜'
         }
       ]
     }
@@ -57,14 +57,14 @@ export default {
       const margin = width * 0.15
       const count = vm.leaderboards.length
       parentWidth = count * width + (count + 1) * margin
-      vm.$refs.leaderboardWrapper.style.width = parentWidth + "px"
+      vm.$refs.leaderboardWrapper.style.width = parentWidth + 'px'
       if (!vm.scroll) {
         vm.scroll = new BScroll(vm.$refs.leaderboradTag, {
           startX: 0,
           scrollX: true,
           scrollY: false,
           click: true,
-          eventPassthrough: "vertical"
+          eventPassthrough: 'vertical'
         })
       } else {
         vm.scroll.refresh()

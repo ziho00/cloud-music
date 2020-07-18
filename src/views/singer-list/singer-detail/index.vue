@@ -19,16 +19,16 @@
 <script>
 import {
   Song
-} from "@/common/class"
+} from '@/common/class'
 import {
   getSingerSongs
-} from "@/api/singer"
+} from '@/api/singer'
 import {
   classCreator,
   throttle
-} from "@utils"
-import Scroll from "@/components/scroll"
-import SongItem from "@/base/song"
+} from '@utils'
+import Scroll from '@/components/scroll'
+import SongItem from '@/base/song'
 import Header from '@/components/header'
 import PlayAllItem from '@/base/playall-item'
 export default {
@@ -47,7 +47,7 @@ export default {
     }
   },
   computed: {
-    ...Vuex.mapState(["musicInfo"])
+    ...Vuex.mapState(['musicInfo'])
   },
   created() {
     this.getData()
@@ -67,7 +67,7 @@ export default {
       const { id } = this.$route.params
       try {
         this.$loading.show({
-          message: "加载中...",
+          message: '加载中...',
           banClick: true
         })
         const songsRes = await getSingerSongs({id})
@@ -91,9 +91,9 @@ export default {
       }
     },
     handlePlay(song, index) {
-      this.$store.dispatch("playMusic", song.id)
-      this.$store.dispatch("setCurrentIndex", index)
-      this.$store.dispatch("setPlayList", this.songs)
+      this.$store.dispatch('playMusic', song.id)
+      this.$store.dispatch('setCurrentIndex', index)
+      this.$store.dispatch('setPlayList', this.songs)
     },
     playAll() {
       this.handlePlay(this.songs[0], 0)

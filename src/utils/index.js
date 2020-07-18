@@ -94,10 +94,10 @@ export const initPlayCount = (playCount) => {
   let y = playCount / 100000000
   let w = playCount / 10000
   if (y > 1) {
-    return y.toFixed(1) + "亿"
+    return y.toFixed(1) + '亿'
   }
   if (w > 1) {
-    return ~~(w) + "万"
+    return ~~(w) + '万'
   }
   return playCount
 }
@@ -110,10 +110,10 @@ export const initCollectionCount = (collectionCount) => {
   let y = collectionCount / 100000000
   let w = collectionCount / 10000
   if (y > 1) {
-    return y.toFixed(2) + "亿"
+    return y.toFixed(2) + '亿'
   }
   if (w > 1) {
-    return w.toFixed(1) + "万"
+    return w.toFixed(1) + '万'
   }
   return collectionCount
 }
@@ -124,7 +124,7 @@ export const initCollectionCount = (collectionCount) => {
  */
 export const initDate = (dateTime) => {
   const date = new Date(dateTime)
-  return (date.getMonth() + 1) + "月" + date.getDate() + "日"
+  return (date.getMonth() + 1) + '月' + date.getDate() + '日'
 }
 
 /**
@@ -132,9 +132,9 @@ export const initDate = (dateTime) => {
  * @param {*} artists 歌手数组
  */
 export const initArtists = (artists) => {
-  let ret = ""
+  let ret = ''
   for (let i = 0, len = artists.length; i < len; i++) {
-    ret += i === 0 ? artists[i].name : ("/" + artists[i].name)
+    ret += i === 0 ? artists[i].name : ('/' + artists[i].name)
   }
   return ret
 }
@@ -146,7 +146,7 @@ export const initArtists = (artists) => {
  */
 export const initLyric = (lyric) => {
   if (!lyric) { return }
-  let list = lyric.split("\n")
+  let list = lyric.split('\n')
   if (list.length <= 0) { return [] }
   let lyricList = []
   let textReg = /([^\]]+$)/
@@ -162,7 +162,7 @@ export const initLyric = (lyric) => {
       textTime = timeReg.exec(item)
     }
     let text = textReg.exec(item)
-    let lyricText = text && text[1] || ""
+    let lyricText = text && text[1] || ''
     for (let i = 0, l = time.length; i < l; i++) {
       let lyricTime = time[i][1] * 60 + time[i][2] * 1 + time[i][3] / Math.pow(10, time[i][3].length)
       lyricList.push([lyricTime, lyricText])
@@ -179,17 +179,17 @@ export const initLyric = (lyric) => {
  * @param {*} time 时间戳
  */
 export const initTime = (time) => {
-  let res = ""
+  let res = ''
   if (time > -1) {
     let min = time / 60 >> 0
     let sec = time % 60 >> 0
     if (min < 10) {
-      min = "0" + min
+      min = '0' + min
     }
     if (sec < 10) {
-      sec = "0" + (sec >> 0) 
+      sec = '0' + (sec >> 0) 
     }
-    res = min + ":" + sec
+    res = min + ':' + sec
   }
   return res
 }
@@ -211,13 +211,13 @@ export const find = (arr, target) => {
 
 export const addSearchRecord = (keywords) => {
   const storage = window.localStorage
-  let searchHistories = JSON.parse(storage.getItem("searchHistories") || "[]")
+  let searchHistories = JSON.parse(storage.getItem('searchHistories') || '[]')
   let index = find(searchHistories, keywords)
   if (index !== -1) {
     searchHistories.splice(index, 1)
   }
   searchHistories.unshift(keywords)
-  storage.setItem("searchHistories", JSON.stringify(searchHistories))
+  storage.setItem('searchHistories', JSON.stringify(searchHistories))
 }
 
 export const isDef = (value) => value !== undefined && value !== null
@@ -245,7 +245,7 @@ export const classCreator = (list = [], Ctor) => {
  * @param {*} event 
  */
 export function stopPropagation(event) {
-  event.stopPropagation();
+  event.stopPropagation()
 }
 
 /**
@@ -255,9 +255,9 @@ export function stopPropagation(event) {
  */
 export function preventDefault(event, isStopPropagation) {
   if (typeof event.cancelable !== 'boolean' || event.cancelable) {
-    event.preventDefault();
+    event.preventDefault()
   }
   if (isStopPropagation) {
-    stopPropagation(event);
+    stopPropagation(event)
   }
 }

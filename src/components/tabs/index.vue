@@ -6,11 +6,11 @@
   </div>
 </template>
 <script>
-import Tab from "./tab"
+import Tab from './tab'
 import {
   isDef,
   addUnit
-} from "@utils"
+} from '@utils'
 export default {
   components: {
     Tab
@@ -25,11 +25,11 @@ export default {
     },
     background: {
       type: String,
-      default: "#fff"
+      default: '#fff'
     },
     color: {
       type: String,
-      default: "#ee0a24"
+      default: '#ee0a24'
     },
     sticky: {
       type: Boolean,
@@ -54,7 +54,7 @@ export default {
     }
   },
   watch: {
-    color: "setLine",
+    color: 'setLine',
     currentIndex() {
       this.setLine()
     },
@@ -107,8 +107,8 @@ export default {
     changeNav(item, index) {
       if (this.currentIndex !== index) {
         this.currentIndex = index
-        this.$emit("changeIndex", this.currentIndex)
-        this.$emit("changeActive", item, index)
+        this.$emit('changeIndex', this.currentIndex)
+        this.$emit('changeActive', item, index)
       }
     }
   }

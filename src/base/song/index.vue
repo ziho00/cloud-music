@@ -26,7 +26,7 @@ export default {
   },
   methods: {
     playSong(){
-      this.$emit("play", this.song, this.index)
+      this.$emit('play', this.song, this.index)
     }
   }
 }

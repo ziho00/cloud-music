@@ -1,7 +1,7 @@
 const state = {
   account: {},
   profile: {},
-  token: "",
+  token: '',
   isAnonymous: false, 
   playList: [], // 当前播放歌单
   randomPlayList: [], // 选择随机播放时使用的歌单

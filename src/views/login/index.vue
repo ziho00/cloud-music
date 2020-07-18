@@ -29,15 +29,15 @@ import {
 export default {
   data(){
     return {
-      phone: "",
-      pwd: "",
+      phone: '',
+      pwd: '',
       isActive: 0
     }
   },
   computed: {
     disabled(){
       const {phone, pwd} = this
-      return (phone.trim() === "" || pwd.trim() === "")
+      return (phone.trim() === '' || pwd.trim() === '')
     }
   },
   methods: {
@@ -47,22 +47,22 @@ export default {
       const phoneReg = /^1\d{10}$/
       if (!phoneReg.test(phone)) {
         vm.$toast({
-          message: "请输入正确的手机号码!",
-          icon: "error"
+          message: '请输入正确的手机号码!',
+          icon: 'error'
         })
         return void 0
       }
-      if (pwd.trim() === "") {
+      if (pwd.trim() === '') {
         vm.$toast({
-          message: "请输入正确的密码!",
-          icon: "error"
+          message: '请输入正确的密码!',
+          icon: 'error'
         })
         return void 0
       }
-      this.$store.dispatch("handleLogin", {phone, password: pwd})
+      this.$store.dispatch('handleLogin', {phone, password: pwd})
         .then(() => {
 					this.$store.dispatch('setAnonymous', false)
-          vm.$router.replace("/main")
+          vm.$router.replace('/main')
         })
     },
     inputBlur(){
@@ -71,7 +71,7 @@ export default {
 		},
 		anonymousLogin() {
 			this.$store.dispatch('setAnonymous', true)
-			this.$router.replace("/main")
+			this.$router.replace('/main')
 		}
   }
 }

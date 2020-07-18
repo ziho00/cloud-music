@@ -59,8 +59,8 @@ export default {
       if (vm.loop) {
         width += 2 * clientWidth
       }
-      vm.$refs.content.style.width = width + "px"
-      vm.$refs.content.style.height = vm.height + "px"
+      vm.$refs.content.style.width = width + 'px'
+      vm.$refs.content.style.height = vm.height + 'px'
       vm.dots = len
     },
     initSlider() {
@@ -76,7 +76,7 @@ export default {
         },
         click: true
       })
-      this.swapper.on("scrollEnd", () => {
+      this.swapper.on('scrollEnd', () => {
         let pageIndex = vm.swapper.getCurrentPage().pageX
         vm.currentPageIndex = pageIndex
         vm.timer && clearTimeout(vm.timer)

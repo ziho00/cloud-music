@@ -12,7 +12,7 @@ export default {
   props: {
     imgUrl: {
       type: String,
-      default: ""
+      default: ''
     }
   }
 }

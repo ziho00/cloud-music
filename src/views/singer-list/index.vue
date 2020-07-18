@@ -20,14 +20,14 @@
 <script>
 import {
   getArtistList
-} from "@/api/singer"
+} from '@/api/singer'
 import {
   SearchSinger
-} from "@/common/class"
-import { classCreator } from "@utils"
+} from '@/common/class'
+import { classCreator } from '@utils'
 import Header from '@/components/header'
-import ArtistItem from "@/base/singer"
-import Scroll from "@/components/scroll"
+import ArtistItem from '@/base/singer'
+import Scroll from '@/components/scroll'
 export default {
   components: {
 		Scroll,
@@ -38,30 +38,30 @@ export default {
     return {
       options1: [
         {
-          label: "华语",
+          label: '华语',
           value: 7
         }, {
-          label: "欧美",
+          label: '欧美',
           value: 96
         }, {
-          label: "日本",
+          label: '日本',
           value: 8
         }, {
-          label: "韩国",
+          label: '韩国',
           value: 16
         }, {
-          label: "其他",
+          label: '其他',
           value: 0
         }
       ],
       options2: [{
-        label: "男歌手",
+        label: '男歌手',
         value: 1
       }, {
-        label: "女歌手",
+        label: '女歌手',
         value: 2
       }, {
-        label: "乐队/组合",
+        label: '乐队/组合',
         value: 3
       }],
       select1: -1,
@@ -96,7 +96,7 @@ export default {
       const area = select1 === -1 ? select1 : this.options1[select1].value
       try {
         this.$loading.show({
-          message: "加载中...",
+          message: '加载中...',
           banClick: true
         })
         const res = await getArtistList({type, area})
