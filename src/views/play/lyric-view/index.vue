@@ -16,7 +16,7 @@
 <script>
 import {
 	findLyricInList
-} from '@utils'
+} from "@utils"
 export default {
   props: {
     showLyricView: {
@@ -36,14 +36,15 @@ export default {
     return {
       scroll: null,
       currentLyric: -1,
-      defaultTranslate: 0
+      defaultTranslate: 0,
+      scrollStart: 5
     }
   },
   watch: {
     showLyricView(val){
       const current = this.currentLyric
-      if (val && current >= 5) {
-        const elem = this.$refs.lyricItem[current - 5]
+      if (val && current >= this.scrollStart) {
+        const elem = this.$refs.lyricItem[current - this.scrollStart]
         this.$nextTick(() => {
           this.scroll.scrollToElement(elem, 500)
         })
@@ -54,10 +55,10 @@ export default {
       this.currentLyric = findLyricInList(val, this.lyrics)
     },
     currentLyric(newVal) {
-      if (newVal < 5) {
+      if (newVal < this.scrollStart) {
         this.scroll.scrollTo(0, 0, 300)
       } else {
-        const elem = this.$refs.lyricItem[newVal - 5]
+        const elem = this.$refs.lyricItem[newVal - this.scrollStart]
         this.scroll.scrollToElement(elem, 300)
       }
     }
@@ -78,6 +79,7 @@ export default {
         click: () => { vm.$parent.hideLyricView() },
         probeType: vm.probeType
       })
+      this.scrollStart = ((window.screen.availHeight - 9.2 * window.fontSize) / (2.5 * window.fontSize) >> 1) - 1 
     },
   }
 }

@@ -1,4 +1,4 @@
-import element from './confirm.vue'
+import element from "./confirm.vue"
 
 let Confirm = {}
 
@@ -19,7 +19,7 @@ Confirm.install = function(Vue) {
 		instance = confirmInstances.shift()
 	} else {
 		instance = new ConfirmConstructor()
-		instance.$mount(document.createElement('div'))
+		instance.$mount(document.createElement("div"))
 		document.body.append(instance.$el)
 	}
 	Vue.prototype.$confirm = function({title, msg}) {

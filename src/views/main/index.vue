@@ -9,9 +9,9 @@
 </template>
 
 <script>
-import Header from './header'
-import Scroll from '@/components/scroll'
-import UserItem from './user'
+import Header from "./header"
+import Scroll from "@/components/scroll"
+import UserItem from "./user"
 export default {
 	components: {
 		UserItem,
@@ -20,7 +20,7 @@ export default {
 	},
 	data(){
 		return {
-			keywords: ''
+			keywords: ""
 		}
 	},
 	methods: {

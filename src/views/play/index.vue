@@ -46,12 +46,12 @@
 </template>
 
 <script>
-import DiskView from './disk-view'
-import LyricView from './lyric-view'
-import Header from '@/components/header'
-import PlayListView from './playlist-view'
-import ProgressBar from './progress-bar'
-import FrostedGlass from '@/components/frosted-glass'
+import DiskView from "./disk-view"
+import LyricView from "./lyric-view"
+import Header from "@/components/header"
+import PlayListView from "./playlist-view"
+import ProgressBar from "./progress-bar"
+import FrostedGlass from "@/components/frosted-glass"
 export default {
 	components: {
 		Header,
@@ -92,8 +92,8 @@ export default {
 			const {playList, currentIndex} = this
 			if (playList.length === 0) {
         this.$toast({
-				msg: '请选择播放的歌曲',
-				icon: 'error'
+				msg: "请选择播放的歌曲",
+				icon: "error"
 			}, 2000)
         return
 			}
@@ -110,8 +110,8 @@ export default {
 			const {playList} = this
 			if (playList.length === 0) {
         this.$toast({
-				msg: '请选择播放的歌曲',
-				icon: 'error'
+				msg: "请选择播放的歌曲",
+				icon: "error"
 			}, 2000)
         return
 			}
@@ -121,8 +121,8 @@ export default {
 			const {playList} = this
 			if (playList.length === 0) {
         this.$toast({
-				msg: '请选择播放的歌曲',
-				icon: 'error'
+				msg: "请选择播放的歌曲",
+				icon: "error"
 			}, 2000)
         return
 			}

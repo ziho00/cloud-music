@@ -3,7 +3,7 @@ import {
   initArtists,
   classCreator,
 	initPlayCount
-} from '@utils'
+} from "@utils"
 
 export class Playlist {
 	constructor(params) {

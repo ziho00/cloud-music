@@ -245,7 +245,7 @@ export const classCreator = (list = [], Ctor) => {
  * @param {*} event 
  */
 export function stopPropagation(event) {
-  event.stopPropagation();
+  event.stopPropagation()
 }
 
 /**
@@ -254,10 +254,10 @@ export function stopPropagation(event) {
  * @param {*} isStopPropagation 是否阻止事件冒泡
  */
 export function preventDefault(event, isStopPropagation) {
-  if (typeof event.cancelable !== 'boolean' || event.cancelable) {
-    event.preventDefault();
+  if (typeof event.cancelable !== "boolean" || event.cancelable) {
+    event.preventDefault()
   }
   if (isStopPropagation) {
-    stopPropagation(event);
+    stopPropagation(event)
   }
 }

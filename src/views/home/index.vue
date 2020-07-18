@@ -16,10 +16,10 @@
 <script>
 import {
 	getBanner
-}  from '@/api/home'
-import Swapper from '@/components/swapper'
-import LeaderBoard from './leader-board'
-import RecommendPlaylist from './recommend-playlist'
+}  from "@/api/home"
+import Swapper from "@/components/swapper"
+import LeaderBoard from "./leader-board"
+import RecommendPlaylist from "./recommend-playlist"
 export default {
 	components: {
 		Swapper,

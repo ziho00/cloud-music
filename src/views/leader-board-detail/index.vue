@@ -45,15 +45,15 @@
 <script>
 import {
 	getLeaderboard
-} from '@/api/home'
+} from "@/api/home"
 import {
 	PlayList
-} from '@/common/class'
-import Header from '@/components/header'
-import Scroll from '@/components/scroll'
-import SongItem from '@/base/song-playlist'
-import PlayAllItem from '@/base/playall-item'
-import FrostedGlass from '@/components/frosted-glass'
+} from "@/common/class"
+import Header from "@/components/header"
+import Scroll from "@/components/scroll"
+import SongItem from "@/base/song-playlist"
+import PlayAllItem from "@/base/playall-item"
+import FrostedGlass from "@/components/frosted-glass"
 export default {
 	components: {
 		Header,

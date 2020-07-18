@@ -1,4 +1,4 @@
-import store from '@/store'
+import store from "@/store"
 export default function routerConfig(router) {
 	router.beforeEach((to, from, next) => {
 		const login = !!store.state.account.id

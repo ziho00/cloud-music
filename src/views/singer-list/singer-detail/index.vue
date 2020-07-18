@@ -29,8 +29,8 @@ import {
 } from "@utils"
 import Scroll from "@/components/scroll"
 import SongItem from "@/base/song"
-import Header from '@/components/header'
-import PlayAllItem from '@/base/playall-item'
+import Header from "@/components/header"
+import PlayAllItem from "@/base/playall-item"
 export default {
   components: {
 		Scroll,

@@ -64,7 +64,7 @@ export default {
     }
   },
   computed: {
-    ...Vuex.mapState(['profile', 'isAnonymous'])
+    ...Vuex.mapState(["profile", "isAnonymous"])
   },
   watch: {
     show(newValue){
@@ -102,8 +102,8 @@ export default {
     navTo(path) {
       if(this.isAnonymous) {
         this.$toast({
-          msg: '请登录账号！',
-          icon: 'warning'
+          msg: "请登录账号！",
+          icon: "warning"
         })
         return
       }

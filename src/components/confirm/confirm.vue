@@ -33,8 +33,8 @@ export default {
 	methods: {
     clear(){
       this.visiable = false
-      this.title = ''
-      this.msg = ''
+      this.title = ""
+      this.msg = ""
       this.cb(this)
     },
 		cancle(){

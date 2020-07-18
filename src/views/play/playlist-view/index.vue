@@ -76,7 +76,7 @@ export default {
   },
   methods: {
     hide() {
-      this.$emit('hide')
+      this.$emit("hide")
     },
     handlePlay(song, index) {
 			this.$store.dispatch("playMusic", song.id)

@@ -15,7 +15,7 @@
 <script>
 import {
 	throttle
-} from '@utils'
+} from "@utils"
 export default {
   props: {
     curTime_m_s: {

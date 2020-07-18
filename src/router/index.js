@@ -20,29 +20,29 @@ const Singers = () => import(/* webpackChunkName: "singer" */ "@/views/singer-li
 const SingerDetail = () => import(/* webpackChunkName: "singer" */ "@/views/singer-list/singer-detail")
 
 export default new VueRouter({
-  mode: 'history',
-  base: '/player',
+  mode: "history",
+  base: "/player",
   routes: [
     {
-      path: '/',
+      path: "/",
       component: Login
     }, {
-      path: '/main',
+      path: "/main",
       component: Main,
       meta: { showMusicIcon: true },
       children:[
         {
-          path: '',
+          path: "",
           component: Home,
           meta: { showMusicIcon: true },
         }, {
-          path: 'searchHistory',
+          path: "searchHistory",
           component: SearchHistory,
           meta: {
             showSingerIcon: true
           }
         }, {
-          path: 'searchList',
+          path: "searchList",
           component: SearchList,
           meta: {
             showSingerIcon: true
@@ -50,18 +50,18 @@ export default new VueRouter({
         }
       ]
     }, {
-      path: '/play',
+      path: "/play",
       component: PlayView
     }, {
-      path: '/leaderboard/:idx',
+      path: "/leaderboard/:idx",
       component: LeaderBoard,
       meta: { showMusicIcon: true }
     }, {
-      path: '/playlist/:id',
+      path: "/playlist/:id",
       component: Playlist,
       meta: { showMusicIcon: true }
     }, {
-      path: '/search/:keywords',
+      path: "/search/:keywords",
       component: SearchDetail,
       meta: { showMusicIcon: true },
       children: [
@@ -88,11 +88,11 @@ export default new VueRouter({
         }
       ]
     }, {
-      path: '/singers',
+      path: "/singers",
       component: Singers,
       meta: { showMusicIcon: true }
     }, {
-      path: '/singer/:id',
+      path: "/singer/:id",
       component: SingerDetail,
       meta: { showMusicIcon: true }
     }

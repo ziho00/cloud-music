@@ -1,6 +1,6 @@
 import {
   throttle
-} from './index'
+} from "./index"
 export default function LazyLoad() {
   const lazyLoad = throttle(() => {
     // 获取所有 lazy 图片的 dom 

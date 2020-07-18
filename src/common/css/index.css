@@ -25,12 +25,11 @@
 }
 
 .ellsips-line2 {
-	line-clamp: 2;
-	word-wrap: normal;
-	-webkit-line-clamp: 2;
+	overflow: hidden;
 	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp:2;
 	-webkit-box-orient: vertical;
-	text-overflow: -o-ellipsis-lastline;
 }
 
 

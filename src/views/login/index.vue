@@ -25,7 +25,7 @@
 <script>
 import {
 	iOS_ScrollTop
-} from '@utils'
+} from "@utils"
 export default {
   data(){
     return {
@@ -61,7 +61,7 @@ export default {
       }
       this.$store.dispatch("handleLogin", {phone, password: pwd})
         .then(() => {
-					this.$store.dispatch('setAnonymous', false)
+					this.$store.dispatch("setAnonymous", false)
           vm.$router.replace("/main")
         })
     },
@@ -70,7 +70,7 @@ export default {
       iOS_ScrollTop()
 		},
 		anonymousLogin() {
-			this.$store.dispatch('setAnonymous', true)
+			this.$store.dispatch("setAnonymous", true)
 			this.$router.replace("/main")
 		}
   }

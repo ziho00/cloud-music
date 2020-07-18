@@ -11,12 +11,12 @@
 import {
   search
 } from "@/api/search"
-import PlayAllItem from '@/base/playall-item'
+import PlayAllItem from "@/base/playall-item"
 import SongItem from "@/base/song"
 import Scroll from "@/components/scroll"
 import {
   classCreator
-} from '@utils'
+} from "@utils"
 import { 
   SearchSong 
 }from "@/common/class"

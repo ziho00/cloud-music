@@ -25,7 +25,7 @@ import {
   debounce,
   preventDefault,
   addSearchRecord,
-} from '@utils'
+} from "@utils"
 export default {
   data() {
     return {
@@ -43,10 +43,10 @@ export default {
   },
   watch: {
      keywords(val) {
-      if(val == "" && this.$route.path === '/main/searchList'){
-        this.$router.replace('/main/searchHistory')
-      } else if(val !== '' && this.$route.path !== '/main/searchList') {
-        this.$router.replace('/main/searchList')
+      if(val == "" && this.$route.path === "/main/searchList"){
+        this.$router.replace("/main/searchHistory")
+      } else if(val !== "" && this.$route.path !== "/main/searchList") {
+        this.$router.replace("/main/searchList")
       }
       if (val.trim() !== "") {
         this.changeKeyWords()
@@ -58,7 +58,7 @@ export default {
   },
   methods: {
     showUserBar(){
-      this.$emit('clickUserNav')
+      this.$emit("clickUserNav")
     },
     handleToSearch(){
       if (this.$route.path === "/main/searchList") {
@@ -79,7 +79,7 @@ export default {
       }
     },
     toSearchDetail(){
-      if(this.keywords.trim() == '') { return }
+      if(this.keywords.trim() == "") { return }
       addSearchRecord(this.keywords)
       this.$router.push(`/search/${this.keywords}`)
     },
@@ -93,8 +93,8 @@ export default {
       this.$router.replace("/main")
     },
     handleChangeKeywords() {
-      if(this.keywords.trim() == '') return
-      this.$emit('handleKeywordsChange', this.keywords)
+      if(this.keywords.trim() == "") return
+      this.$emit("handleKeywordsChange", this.keywords)
     },
     toSingerPage() {
       this.$router.push("/singers")

@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import MusicIcon from './components/music-icon'
-import Audio from './base/I-Audio'
+import MusicIcon from "./components/music-icon"
+import Audio from "./base/I-Audio"
 export default {
 	components: {
 		MusicIcon,

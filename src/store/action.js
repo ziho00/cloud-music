@@ -10,11 +10,11 @@ import {
 
 import {
   initLyric
-} from '@utils'
+} from "@utils"
 
 import {
   Music
-} from '@/common/class'
+} from "@/common/class"
 
 
 // import Vue from "vue"

@@ -25,7 +25,7 @@ import {
   SearchSinger
 } from "@/common/class"
 import { classCreator } from "@utils"
-import Header from '@/components/header'
+import Header from "@/components/header"
 import ArtistItem from "@/base/singer"
 import Scroll from "@/components/scroll"
 export default {
